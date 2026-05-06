@@ -76,8 +76,8 @@ const I18N = {
     'event.1.tag': 'Schul-Aktion',
     'event.1.date': '11. April 2025',
     'event.1.title': 'Reifen-Brunnen & Tortenverkauf',
-    'event.1.text': 'Im Mortimer English Club: ein „Brunnen" aus alten Reifen, geschmückt mit Tansania-Flaggen, dazu der Verkauf der selbstgebackenen Brunnen-Torte mit Massai-Figuren. Ein bunter Nachmittag mit den Kindern.',
-    'event.1.where': 'Mortimer English Club',
+    'event.1.text': 'Im Mortimer Englisch Club: ein „Brunnen" aus alten Reifen, geschmückt mit Tansania-Flaggen, dazu der Verkauf einer Brunnen-Torte mit Massai-Figuren. Ein bunter Nachmittag mit den Kindern.',
+    'event.1.where': 'Mortimer Englisch Club',
     'event.2.tag': 'Trödelmarkt',
     'event.2.date': '29. Mai 2025',
     'event.2.title': 'Nachttrödelmarkt',
@@ -115,6 +115,17 @@ const I18N = {
     'build.quote': 'Jede Unterstützung bringt uns dem Ziel näher: sauberes Wasser für Kisangasa.',
     'build.quote.sig': 'Projektstand',
 
+    'examples.eyebrow': 'Beispielbilder',
+    'examples.title.1': 'So kann der Brunnen',
+    'examples.title.2': 'später aussehen.',
+    'examples.notice': 'Die folgenden Bilder sind Beispielbilder bzw. Visualisierungen. Sie zeigen nicht den aktuellen Baufortschritt in Kisangasa. Der Brunnenbau startet erst nach gesicherter Finanzierung und Abstimmung vor Ort.',
+    'examples.badge.1': 'Beispielbild',
+    'examples.badge.2': 'Visualisierung',
+    'examples.badge.3': 'Symbolbild',
+    'examples.cap.1': 'Beispielhafte Darstellung eines Brunnenbaus – nicht aus Kisangasa.',
+    'examples.cap.2': 'So könnte die Umsetzung nach erfolgreicher Finanzierung aussehen.',
+    'examples.cap.3': 'Symbolbild zur geplanten Umsetzung.',
+
     'updates.eyebrow': 'Neuigkeiten',
     'updates.title.1': 'Was bisher',
     'updates.title.2': 'passiert ist.',
@@ -147,6 +158,8 @@ const I18N = {
     'faq.a7': 'Informationen dazu werden transparent bereitgestellt. Eine verbindliche Zusage wird erst formuliert, wenn die konkrete Abwicklung rechtssicher bestätigt ist.',
     'faq.q8': 'Wie wird der Fortschritt dokumentiert?',
     'faq.a8': 'Über Updates auf dieser Website, sobald neue gesicherte Informationen vorliegen.',
+    'faq.q9': 'Warum gibt es Beispielbilder auf dieser Seite?',
+    'faq.a9': 'Einige Bilder zeigen beispielhaft, wie ein Brunnenbau oder ein fertiger Brunnen später aussehen kann. Sie zeigen keinen aktuellen Baufortschritt in Kisangasa. Der Brunnenbau startet erst nach gesicherter Finanzierung und Abstimmung vor Ort.',
 
     'cta.eyebrow': 'Jetzt mithelfen',
     'cta.title.1': 'Deine Spende',
@@ -194,17 +207,17 @@ const I18N = {
     'footer.thanks': 'Asante sana — Vielen Dank.',
 
     'gallery.0.label': 'Vor Ort',
-    'gallery.0.cap': 'Edith mit einem der Kinder',
+    'gallery.0.cap': 'Edith hält ein Kind in den Armen',
     'gallery.1.label': 'Dorf',
-    'gallery.1.cap': 'Auf dem Weg durchs Dorf',
+    'gallery.1.cap': 'Kind auf dem Weg durch das Dorf Kisangasa',
     'gallery.2.label': 'Kinder',
     'gallery.2.cap': 'Hier wie dort — Kinder, die lachen',
     'gallery.3.label': 'Wasser',
-    'gallery.3.cap': 'Wasserkanister mit Foto eines Kindes',
+    'gallery.3.cap': 'Kind trägt einen schweren Wasserkanister',
     'gallery.4.label': 'Begegnung',
-    'gallery.4.cap': 'Edith mit Kindern aus zwei Welten',
+    'gallery.4.cap': 'Edith mit Kindern aus Kisangasa',
     'gallery.5.label': 'Lächeln',
-    'gallery.5.cap': 'Selfie aus Kisangasa',
+    'gallery.5.cap': 'Edith beim Selfie mit Kindern aus dem Dorf',
   },
 
   en: {
@@ -273,8 +286,8 @@ const I18N = {
     'event.1.tag': 'School action',
     'event.1.date': 'April 11, 2025',
     'event.1.title': 'Tire well & cake sale',
-    'event.1.text': 'At the Mortimer English Club: a "well" built from old tires, decorated with Tanzanian flags, plus the famous handmade well-cake with Maasai figurines. A colorful afternoon with the kids.',
-    'event.1.where': 'Mortimer English Club',
+    'event.1.text': 'At the Mortimer Englisch Club: a "well" built from old tires, decorated with Tanzanian flags, plus a well-shaped cake with Maasai figurines. A colorful afternoon with the kids.',
+    'event.1.where': 'Mortimer Englisch Club',
     'event.2.tag': 'Flea market',
     'event.2.date': 'May 29, 2025',
     'event.2.title': 'Night flea market',
@@ -312,6 +325,17 @@ const I18N = {
     'build.quote': 'Every contribution brings us closer to the goal: clean water for Kisangasa.',
     'build.quote.sig': 'Project status',
 
+    'examples.eyebrow': 'Example images',
+    'examples.title.1': 'How the well could',
+    'examples.title.2': 'look later.',
+    'examples.notice': 'The following images are example images or visualizations. They do not show current construction progress in Kisangasa. Well construction will only start after secured funding and coordination on site.',
+    'examples.badge.1': 'Example image',
+    'examples.badge.2': 'Visualization',
+    'examples.badge.3': 'Symbolic image',
+    'examples.cap.1': 'Example depiction of well construction – not from Kisangasa.',
+    'examples.cap.2': 'This is how implementation could look after successful funding.',
+    'examples.cap.3': 'Symbolic image for the planned implementation.',
+
     'updates.eyebrow': 'News',
     'updates.title.1': 'What has',
     'updates.title.2': 'happened so far.',
@@ -344,6 +368,8 @@ const I18N = {
     'faq.a7': 'Information will be provided transparently. A binding statement will only be made once the concrete handling has been legally confirmed.',
     'faq.q8': 'How will progress be documented?',
     'faq.a8': 'Through updates on this website as soon as new verified information is available.',
+    'faq.q9': 'Why are there example images on this page?',
+    'faq.a9': 'Some images show examples of how well construction or a finished well could look later. They do not show current construction progress in Kisangasa. Well construction will only start after secured funding and coordination on site.',
 
     'cta.eyebrow': 'Help now',
     'cta.title.1': 'Your donation',
@@ -391,17 +417,17 @@ const I18N = {
     'footer.thanks': 'Asante sana — thank you.',
 
     'gallery.0.label': 'On site',
-    'gallery.0.cap': 'Edith with one of the kids',
+    'gallery.0.cap': 'Edith holding a child in her arms',
     'gallery.1.label': 'Village',
-    'gallery.1.cap': 'On the path through the village',
+    'gallery.1.cap': 'Child on the path through the village of Kisangasa',
     'gallery.2.label': 'Children',
     'gallery.2.cap': 'Here and there — children who laugh',
     'gallery.3.label': 'Water',
-    'gallery.3.cap': "Water canister with a child's photo",
+    'gallery.3.cap': 'Child carrying a heavy water canister',
     'gallery.4.label': 'Encounter',
-    'gallery.4.cap': 'Edith with kids from two worlds',
+    'gallery.4.cap': 'Edith with children from Kisangasa',
     'gallery.5.label': 'Smile',
-    'gallery.5.cap': 'Selfie from Kisangasa',
+    'gallery.5.cap': 'Edith taking a selfie with children from the village',
   }
 };
 
@@ -490,7 +516,7 @@ function renderFAQ() {
   const list = document.getElementById('faq-list');
   if (!list) return;
   list.innerHTML = '';
-  for (let i = 1; i <= 8; i++) {
+  for (let i = 1; i <= 9; i++) {
     const item = document.createElement('div');
     item.className = 'faq-item';
     if (i === 1) item.classList.add('open');

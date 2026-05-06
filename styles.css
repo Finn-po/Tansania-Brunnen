@@ -197,6 +197,12 @@ section {
   position: relative;
   display: inline-block;
 }
+h2 .hand-underline {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.12em;
+  letter-spacing: 0;
+}
 .hand-underline::after {
   content: '';
   position: absolute;
@@ -706,6 +712,94 @@ section {
 }
 .events-foot { margin-top: 56px; }
 .events-foot .hand { font-size: 26px; color: var(--terracotta); margin-bottom: 16px; }
+
+/* ─── Example Images ─── */
+
+.example-section {
+  background: var(--paper);
+  padding: 96px 0;
+  border-top: 1px solid color-mix(in oklab, var(--ink) 6%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--ink) 6%, transparent);
+}
+.example-head {
+  max-width: 760px;
+  margin: 0 auto 28px;
+}
+.example-head h2 { margin-top: 12px; }
+.example-notice {
+  max-width: 900px;
+  margin: 0 auto 34px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--gold) 18%, white);
+  border: 1px solid color-mix(in oklab, var(--gold) 35%, transparent);
+  color: var(--blue);
+}
+.example-notice span {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+}
+.example-notice p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.example-card {
+  margin: 0;
+  background: var(--bone);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  box-shadow: var(--shadow-soft);
+}
+.example-img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+.example-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: white;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0,0,0,.18);
+}
+.example-card figcaption {
+  padding: 16px 18px 18px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.5;
+}
+@media (max-width: 960px) {
+  .example-grid { grid-template-columns: 1fr; }
+}
 
 /* ─── Updates Timeline ─── */
 

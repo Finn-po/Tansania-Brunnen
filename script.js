@@ -206,18 +206,16 @@ const I18N = {
     'footer.receipt': 'Spendenbescheinigung',
     'footer.thanks': 'Asante sana — Vielen Dank.',
 
-    'gallery.0.label': 'Vor Ort',
-    'gallery.0.cap': 'Edith hält ein Kind in den Armen',
-    'gallery.1.label': 'Dorf',
-    'gallery.1.cap': 'Kind auf dem Weg durch das Dorf Kisangasa',
-    'gallery.2.label': 'Kinder',
-    'gallery.2.cap': 'Hier wie dort — Kinder, die lachen',
-    'gallery.3.label': 'Wasser',
-    'gallery.3.cap': 'Kind trägt einen schweren Wasserkanister',
-    'gallery.4.label': 'Begegnung',
-    'gallery.4.cap': 'Edith mit Kindern aus Kisangasa',
-    'gallery.5.label': 'Lächeln',
-    'gallery.5.cap': 'Edith beim Selfie mit Kindern aus dem Dorf',
+    'gallery.0.label': 'Dorf',
+    'gallery.0.cap': 'Kind auf dem Weg durch das Dorf Kisangasa',
+    'gallery.1.label': 'Wasser',
+    'gallery.1.cap': 'Kind trägt einen schweren Wasserkanister auf dem Weg durchs Dorf',
+    'gallery.2.label': 'Nähe',
+    'gallery.2.cap': 'Edith hält ein Kind in den Armen',
+    'gallery.3.label': 'Begegnung',
+    'gallery.3.cap': 'Edith mit Kindern aus Kisangasa',
+    'gallery.4.label': 'Selfie',
+    'gallery.4.cap': 'Edith beim Selfie mit Kindern aus Kisangasa',
   },
 
   en: {
@@ -416,18 +414,16 @@ const I18N = {
     'footer.receipt': 'Donation receipt',
     'footer.thanks': 'Asante sana — thank you.',
 
-    'gallery.0.label': 'On site',
-    'gallery.0.cap': 'Edith holding a child in her arms',
-    'gallery.1.label': 'Village',
-    'gallery.1.cap': 'Child on the path through the village of Kisangasa',
-    'gallery.2.label': 'Children',
-    'gallery.2.cap': 'Here and there — children who laugh',
-    'gallery.3.label': 'Water',
-    'gallery.3.cap': 'Child carrying a heavy water canister',
-    'gallery.4.label': 'Encounter',
-    'gallery.4.cap': 'Edith with children from Kisangasa',
-    'gallery.5.label': 'Smile',
-    'gallery.5.cap': 'Edith taking a selfie with children from the village',
+    'gallery.0.label': 'Village',
+    'gallery.0.cap': 'Child on the path through the village of Kisangasa',
+    'gallery.1.label': 'Water',
+    'gallery.1.cap': 'Child carrying a heavy water canister on the path through the village',
+    'gallery.2.label': 'Close',
+    'gallery.2.cap': 'Edith holding a child in her arms',
+    'gallery.3.label': 'Encounter',
+    'gallery.3.cap': 'Edith with children from Kisangasa',
+    'gallery.4.label': 'Selfie',
+    'gallery.4.cap': 'Edith taking a selfie with children from Kisangasa',
   }
 };
 
@@ -455,12 +451,11 @@ function applyI18n() {
 
 /* ── Gallery ── */
 const GALLERY_ITEMS = [
-  { src: 'images/image-9.jpg', i: 1 },
-  { src: 'images/image-16.jpg', i: 3 },
-  { src: 'images/image-10.jpg', i: 2 },
-  { src: 'images/image-6.jpg', i: 0 },
-  { src: 'images/image-7.jpg', i: 4 },
-  { src: 'images/image-8.jpg', i: 5 },
+  { src: 'images/image-10.jpg', i: 0 },
+  { src: 'images/image-18.jpeg', i: 1 },
+  { src: 'images/image-9.jpg', i: 2 },
+  { src: 'images/image-27.jpeg', i: 3 },
+  { src: 'images/image-21.jpeg', i: 4 },
 ];
 
 function renderGallery() {

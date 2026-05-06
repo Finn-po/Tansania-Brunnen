@@ -691,7 +691,7 @@ h2 .hand-underline {
   border-radius: 999px;
 }
 .event-card-blue .event-tag { background: color-mix(in oklab, var(--blue) 12%, transparent); color: var(--blue); }
-.event-card-red  .event-tag { background: color-mix(in oklab, var(--terracotta) 12%, transparent); color: var(--terracotta-deep); }
+.event-card-red .event-tag { background: color-mix(in oklab, var(--terracotta) 12%, transparent); color: var(--terracotta-deep); }
 .event-card-gold .event-tag { background: color-mix(in oklab, var(--gold) 25%, transparent); color: #6b4d10; }
 .event-date { color: var(--ink-soft); font-weight: 500; }
 .event-card h3 { margin-bottom: 10px; }
@@ -854,7 +854,7 @@ h2 .hand-underline {
   padding-top: 8px;
 }
 .update-body h3 { font-size: 22px; margin-bottom: 6px; }
-.update-body p  { font-size: 16px; margin: 0; }
+.update-body p { font-size: 16px; margin: 0; }
 @media (max-width: 640px) {
   .update-row { grid-template-columns: 28px 1fr; }
   .update-date { grid-column: 2; padding-top: 0; margin-bottom: 4px; }
@@ -863,6 +863,11 @@ h2 .hand-underline {
 
 /* ─── About ─── */
 
+.about-section {
+  background: var(--paper);
+  border-top: 1px solid color-mix(in oklab, var(--ink) 6%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--ink) 6%, transparent);
+}
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -1059,7 +1064,7 @@ h2 .hand-underline {
 }
 @media (max-width: 540px) {
   .donate-presets { grid-template-columns: repeat(3, 1fr); }
-  .donate-custom  { grid-column: span 3; }
+  .donate-custom { grid-column: span 3; }
 }
 .donate-preset {
   padding: 12px 6px;
@@ -1129,7 +1134,7 @@ h2 .hand-underline {
   position: fixed;
   right: 24px;
   bottom: 24px;
-  z-index: 45;
+  z-index: 90;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1147,7 +1152,7 @@ h2 .hand-underline {
   opacity: 0;
   pointer-events: none;
   transform: translateY(12px);
-  transition: opacity .2s ease, transform .2s ease, background .2s ease;
+  transition: opacity .3s ease, transform .3s ease, background .2s ease;
 }
 .floating-donate:hover { background: var(--terracotta-deep); }
 .floating-donate.show {
@@ -1157,11 +1162,13 @@ h2 .hand-underline {
 }
 @media (max-width: 640px) {
   .floating-donate {
-    right: 16px;
+    right: 20px;
+    left: 20px;
     bottom: 16px;
     min-height: 42px;
     padding: 11px 15px;
     font-size: 14px;
+    width: auto;
   }
 }
 
@@ -1223,6 +1230,16 @@ footer a:hover { opacity: 1; }
   .footer-grid > div:first-child { grid-column: span 2; }
 }
 .footer-col-list { display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-social svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
 .footer-bottom {
   display: flex;
   justify-content: space-between;

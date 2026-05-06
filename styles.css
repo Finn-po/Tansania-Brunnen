@@ -568,9 +568,17 @@ h2 .hand-underline {
   box-shadow: var(--shadow-card);
 }
 .gallery-tile img {
+  object-position: center top;
   transition: transform .8s cubic-bezier(.2,.8,.2,1);
 }
 .gallery-tile:hover img { transform: scale(1.06); }
+
+.gallery-tile[data-ratio="portrait"] {
+  aspect-ratio: 4 / 5;
+}
+.gallery-tile[data-ratio="landscape"] {
+  aspect-ratio: 3 / 2;
+}
 
 .gallery-tile-0 { grid-column: span 3; grid-row: span 2; }
 .gallery-tile-1 { grid-column: span 2; }
@@ -586,6 +594,15 @@ h2 .hand-underline {
     grid-row: span 1;
   }
   .gallery-tile-0, .gallery-tile-4 { grid-column: span 2; }
+}
+@media (max-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .gallery-tile-0, .gallery-tile-4 {
+    grid-column: span 1;
+  }
 }
 
 .gallery-tile figcaption {
@@ -618,7 +635,7 @@ h2 .hand-underline {
 
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 28px;
 }
 @media (max-width: 960px) {
@@ -712,6 +729,68 @@ h2 .hand-underline {
 }
 .events-foot { margin-top: 56px; }
 .events-foot .hand { font-size: 26px; color: var(--terracotta); margin-bottom: 16px; }
+
+.planned-action {
+  display: grid;
+  grid-template-columns: minmax(260px, 380px) 1fr;
+  gap: 28px;
+  align-items: stretch;
+  max-width: 980px;
+  margin: 0 auto 56px;
+  background: white;
+  border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.planned-action-media {
+  position: relative;
+  min-height: 300px;
+  background: var(--paper-2);
+}
+.planned-action-media img {
+  object-position: center top;
+}
+.poster-label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.92);
+  color: var(--blue);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.planned-action-body {
+  padding: 30px 30px 32px 0;
+  display: flex;
+  flex-direction: column;
+}
+.planned-action .event-tag {
+  background: color-mix(in oklab, var(--gold) 25%, transparent);
+  color: #6b4d10;
+}
+.planned-action h3 {
+  margin-bottom: 12px;
+}
+.planned-action p {
+  font-size: 17px;
+}
+@media (max-width: 760px) {
+  .planned-action {
+    grid-template-columns: 1fr;
+  }
+  .planned-action-media {
+    min-height: 360px;
+  }
+  .planned-action-body {
+    padding: 24px;
+  }
+}
 
 /* ─── Example Images ─── */
 
@@ -1200,6 +1279,16 @@ h2 .hand-underline {
 .legal-card p {
   color: var(--ink-soft);
   font-size: 17px;
+}
+.legal-card ul {
+  color: var(--ink-soft);
+  font-size: 17px;
+  margin: 0 0 1em 1.2em;
+  padding: 0;
+}
+.legal-card a {
+  color: var(--blue);
+  font-weight: 600;
 }
 
 /* ─── Footer ─── */

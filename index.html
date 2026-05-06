@@ -12,28 +12,35 @@
 
   <link rel="stylesheet" href="styles.css"/>
   <style>
-    /* ── BRUNNENBAU SECTION ── */
+    /* ── PROJEKTPLAN SECTION ── */
     .build-section { padding: 96px 0; background: var(--sand, #faf7f2); }
-    .build-head { max-width: 680px; margin: 0 auto 72px; }
-    .build-steps { display: flex; flex-direction: column; gap: 64px; margin-bottom: 72px; }
-
-    .build-step {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+    .build-head { max-width: 760px; margin: 0 auto 48px; }
+    .build-status {
+      display: inline-flex;
       align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: color-mix(in oklab, var(--terracotta, #c2452d) 12%, white);
+      color: var(--terracotta-deep, #9a3320);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
     }
-    .build-step-right { direction: rtl; }
-    .build-step-right > * { direction: ltr; }
-
-    .build-step-img {
+    .build-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 48px;
+    }
+    .build-step {
+      background: white;
+      border: 1px solid color-mix(in oklab, var(--ink, #1a2942) 8%, transparent);
       border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      padding: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
-    .build-step-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
     .build-step-label {
       font-size: 12px;
       font-weight: 700;
@@ -64,8 +71,7 @@
     .build-quote cite { font-style: normal; font-size: 14px; opacity: .6; }
 
     @media (max-width: 768px) {
-      .build-step, .build-step-right { grid-template-columns: 1fr; direction: ltr; }
-      .build-step-right .build-step-img { order: -1; }
+      .build-steps { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -84,7 +90,7 @@
       <nav class="nav-links">
         <a href="#geschichte" data-i18n="nav.story">Geschichte</a>
         <a href="#events" data-i18n="nav.events">Aktionen</a>
-        <a href="#brunnenbau" data-i18n="nav.build">Der Bau</a>
+        <a href="#brunnenbau" data-i18n="nav.build">Projektplan</a>
         <a href="#galerie" data-i18n="nav.gallery">Galerie</a>
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
         <button class="lang-toggle" id="lang-toggle" aria-label="Sprache wechseln">
@@ -92,7 +98,7 @@
           <span class="lang-sep">·</span>
           <span data-lang-en>EN</span>
         </button>
-        <a href="https://4fund.com/de/yhn7nt" target="_blank" rel="noopener" class="btn btn-primary" style="padding:10px 18px;font-size:14px">
+        <a href="https://4fund.com/de/yhn7nt?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARkhwRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadxLTn0RMiM_cF4spRfqvKI5ZluJ6rOpw2im27KDv0Z7N9_gJL4AGkHdq9Aow_aem_ghL43DMcSc4AULmgLW4beg" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:10px 18px;font-size:14px">
           <svg class="heart-svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9.4C.8 7.5 4 3 8.4 3c2 0 3.2.9 3.6 2 .4-1.1 1.6-2 3.6-2 4.4 0 7.6 4.5 6 8.6C19.5 16.3 12 21 12 21z"/></svg>
           <span data-i18n="nav.donate">Spenden</span>
         </a>
@@ -141,14 +147,15 @@
               <strong id="don-remaining">2.480 €</strong>
               <span data-i18n="hero.remaining_post">bis zum ersten Brunnen</span>
             </div>
+            <div class="donation-updated" data-i18n="hero.updated">Stand: Datum bitte aktualisieren</div>
           </div>
 
           <div class="hero-cta-row">
-            <a href="https://4fund.com/de/yhn7nt" target="_blank" rel="noopener" class="btn btn-primary">
+            <a href="https://4fund.com/de/yhn7nt?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARkhwRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadxLTn0RMiM_cF4spRfqvKI5ZluJ6rOpw2im27KDv0Z7N9_gJL4AGkHdq9Aow_aem_ghL43DMcSc4AULmgLW4beg" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
               <svg class="heart-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9.4C.8 7.5 4 3 8.4 3c2 0 3.2.9 3.6 2 .4-1.1 1.6-2 3.6-2 4.4 0 7.6 4.5 6 8.6C19.5 16.3 12 21 12 21z"/></svg>
               <span data-i18n="hero.cta.donate">Jetzt spenden</span>
             </a>
-            <a href="#geschichte" class="btn btn-ghost" data-i18n="hero.cta.story">Die Geschichte lesen →</a>
+            <a href="#brunnenbau" class="btn btn-ghost" data-i18n="hero.cta.story">Projekt verstehen</a>
           </div>
 
           <p class="hand hero-tagline" data-i18n="hero.tagline">Jeder Tropfen zählt.</p>
@@ -210,11 +217,11 @@
         <div class="story-images">
           <div class="story-img-stack">
             <figure class="polaroid polaroid-1">
-              <img src="images/image-6.jpg" alt="Edith umarmt ein Kind in Kisangasa" class="img-fit"/>
+              <img src="images/image-6.jpg" alt="Edith umarmt ein Kind in Kisangasa" class="img-fit" loading="lazy"/>
               <figcaption class="hand" data-i18n="story.cap.1">Liebe verändert Leben.</figcaption>
             </figure>
             <figure class="polaroid polaroid-2">
-              <img src="images/image-8.jpg" alt="Edith beim Selfie mit Dorfkindern in Tansania" class="img-fit"/>
+              <img src="images/image-8.jpg" alt="Edith beim Selfie mit Dorfkindern in Tansania" class="img-fit" loading="lazy"/>
               <figcaption class="hand" data-i18n="story.cap.2">Habari! 👋</figcaption>
             </figure>
           </div>
@@ -262,10 +269,7 @@
       <div class="events-grid">
         <article class="event-card event-card-blue">
           <div class="event-img-wrap">
-            <img src="images/image-15.jpg" alt="Selbstgebauter Brunnen aus Reifen am Trödelmarkt-Stand" class="img-fit"/>
-            <div class="event-cake-overlay">
-              <img src="images/brunnen-torte.jpg" alt="Geburtstagskuchen in Form eines Brunnens" class="img-fit"/>
-            </div>
+            <img src="images/image-15.jpg" alt="Selbstgebauter Brunnen aus Reifen am Trödelmarkt-Stand" class="img-fit" loading="lazy"/>
           </div>
           <div class="event-body">
             <div class="event-meta">
@@ -282,7 +286,7 @@
 
         <article class="event-card event-card-red">
           <div class="event-img-wrap">
-            <img src="images/image-16.jpg" alt="Kind mit Wasserkanister in Kisangasa" class="img-fit"/>
+            <img src="images/image-16.jpg" alt="Kind mit Wasserkanister in Kisangasa" class="img-fit" loading="lazy"/>
           </div>
           <div class="event-body">
             <div class="event-meta">
@@ -299,7 +303,7 @@
 
         <article class="event-card event-card-gold">
           <div class="event-img-wrap">
-            <img src="images/image-17.png" alt="Grafik: Wunschbrunnen-Aktion" class="img-fit"/>
+            <img src="images/image-17.png" alt="Grafik: Wunschbrunnen-Aktion" class="img-fit" loading="lazy"/>
             <div class="event-upcoming" data-i18n-upcoming>Geplant</div>
           </div>
           <div class="event-body">
@@ -308,7 +312,7 @@
               <span class="event-date" data-i18n="event.3.date">Geplant 2026</span>
             </div>
             <h3 data-i18n="event.3.title">Der echte Brunnen</h3>
-            <p class="muted" data-i18n="event.3.text">Wenn das Spendenziel erreicht ist: Bau, Inbetriebnahme und Übergabe an die Dorfgemeinschaft in Kisangasa. Dokumentiert auf dieser Seite.</p>
+            <p class="muted" data-i18n="event.3.text">Wenn das Spendenziel erreicht ist, werden die nächsten Schritte zur Umsetzung vorbereitet und transparent dokumentiert.</p>
             <div class="event-stat">
               <span class="event-where">📍 <span data-i18n="event.3.where">Kisangasa</span></span>
             </div>
@@ -318,29 +322,30 @@
 
       <div class="center events-foot">
         <p class="hand" data-i18n="events.idea">Du hast eine Idee für eine Aktion?</p>
-        <a href="#kontakt" class="btn btn-blue" data-i18n="events.contact">Schreib uns →</a>
+        <a href="kontakt.html" class="btn btn-blue" data-i18n="events.contact">Schreib uns →</a>
       </div>
     </div>
   </section>
 
-  <!-- ── BRUNNENBAU ── -->
+  <!-- ── PROJEKTPLAN ── -->
   <section id="brunnenbau" class="build-section" data-screen-label="Build">
     <div class="wrap">
       <div class="center build-head">
-        <div class="eyebrow" data-i18n="build.eyebrow">Es geht los</div>
+        <div class="eyebrow" data-i18n="build.eyebrow">Projektplan</div>
         <h2>
-          <span data-i18n="build.title.1">Der Brunnen</span>
-          <span class="hand-underline" data-i18n="build.title.2">entsteht.</span>
+          <span data-i18n="build.title.1">So soll der Brunnen</span>
+          <span class="hand-underline" data-i18n="build.title.2">entstehen.</span>
         </h2>
-        <p class="lede" data-i18n="build.lede">Dank eurer Spenden hat der Bau begonnen. Hier seht ihr, wie aus Steinen, Erde und Hoffnung Wirklichkeit wird — Schritt für Schritt, direkt in Kisangasa.</p>
+        <p class="lede" data-i18n="build.lede">Der Bau hat noch nicht begonnen. Diese Schritte sind geplant, sobald die Finanzierung gesichert und die Umsetzung vor Ort abgestimmt ist.</p>
+        <div class="build-status" data-i18n="build.status">Aktueller Stand: Spendensammlung läuft.</div>
       </div>
 
       <div class="build-steps" id="build-steps"></div>
 
       <div class="build-quote-wrap">
         <blockquote class="build-quote">
-          <span class="hand" data-i18n="build.quote">„Ich hab geweint, als ich die Bilder gesehen habe. Es wird wirklich wahr."</span>
-          <cite data-i18n="build.quote.sig">— Edith</cite>
+          <span class="hand" data-i18n="build.quote">Jede Unterstützung bringt uns dem Ziel näher: sauberes Wasser für Kisangasa.</span>
+          <cite data-i18n="build.quote.sig">Projektstand</cite>
         </blockquote>
       </div>
     </div>
@@ -351,13 +356,13 @@
     <div class="wrap">
       <div class="gallery-head">
         <div>
-          <div class="eyebrow" data-i18n="gallery.eyebrow">Einblicke</div>
+          <div class="eyebrow" data-i18n="gallery.eyebrow">Einblicke aus Kisangasa</div>
           <h2>
             <span data-i18n="gallery.title.1">Bilder aus</span>
             <span class="hand-underline" data-i18n="gallery.title.2">Kisangasa.</span>
           </h2>
         </div>
-        <p class="hand gallery-aside" data-i18n="gallery.aside">…Worte reichen nicht.</p>
+        <p class="hand gallery-aside" data-i18n="gallery.aside">Momente, die zeigen, warum Hilfe gebraucht wird.</p>
       </div>
 
       <div class="gallery-grid" id="gallery-grid"></div>
@@ -370,10 +375,10 @@
       <div class="center updates-head">
         <div class="eyebrow" data-i18n="updates.eyebrow">Neuigkeiten</div>
         <h2>
-          <span data-i18n="updates.title.1">So weit</span>
-          <span class="hand-underline" data-i18n="updates.title.2">sind wir.</span>
+          <span data-i18n="updates.title.1">Was bisher</span>
+          <span class="hand-underline" data-i18n="updates.title.2">passiert ist.</span>
         </h2>
-        <p class="muted" data-i18n="updates.lede">Stand der Aktionen, kleine Erfolge, Begegnungen.</p>
+        <p class="muted" data-i18n="updates.lede">Aktionen, Reiseeindrücke und der nächste große Schritt: das Erreichen des Spendenziels.</p>
       </div>
 
       <div class="updates-list">
@@ -410,7 +415,7 @@
     <div class="wrap">
       <div class="about-grid">
         <div class="about-img-wrap">
-          <img src="images/image-6.jpg" alt="Edith – Initiatorin von Brunnen für Tansania" class="img-fit"/>
+          <img src="images/image-6.jpg" alt="Edith – Initiatorin von Brunnen für Tansania" class="img-fit" loading="lazy"/>
           <div class="about-img-tag hand" data-i18n="about.tag">Edith Cielma</div>
         </div>
         <div class="about-text">
@@ -425,6 +430,42 @@
           <blockquote class="about-quote">
             <span class="hand" data-i18n="about.quote">„Ich kann vielleicht nicht die ganze Welt verändern, aber die Welt für ein Dorf."</span>
           </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRANSPARENZ ── -->
+  <section id="transparenz" class="transparency-section" data-screen-label="Transparency">
+    <div class="wrap">
+      <div class="center transparency-head">
+        <div class="eyebrow" data-i18n="transparency.eyebrow">Transparenz</div>
+        <h2><span class="hand-underline" data-i18n="transparency.title">Was aktuell gesichert ist.</span></h2>
+      </div>
+      <div class="transparency-grid">
+        <div class="transparency-card">
+          <h3 data-i18n="transparency.q1">Wer sammelt?</h3>
+          <p data-i18n="transparency.a1">Edith Cielma.</p>
+        </div>
+        <div class="transparency-card">
+          <h3 data-i18n="transparency.q2">Wofür wird gesammelt?</h3>
+          <p data-i18n="transparency.a2">Für einen geplanten Brunnenbau in Kisangasa, Tansania.</p>
+        </div>
+        <div class="transparency-card">
+          <h3 data-i18n="transparency.q3">Hat der Bau begonnen?</h3>
+          <p data-i18n="transparency.a3">Nein. Aktuell läuft die Spendensammlung.</p>
+        </div>
+        <div class="transparency-card">
+          <h3 data-i18n="transparency.q4">Wie wird gespendet?</h3>
+          <p data-i18n="transparency.a4">Über die externe Plattform 4fund.</p>
+        </div>
+        <div class="transparency-card">
+          <h3 data-i18n="transparency.q5">Wie wird der Fortschritt dokumentiert?</h3>
+          <p data-i18n="transparency.a5">Über Updates auf dieser Website, sobald neue gesicherte Informationen vorliegen.</p>
+        </div>
+        <div class="transparency-card">
+          <h3 data-i18n="transparency.q6">Spendenbescheinigung</h3>
+          <p data-i18n="transparency.a6">Informationen zur Spendenbescheinigung werden transparent bereitgestellt.</p>
         </div>
       </div>
     </div>
@@ -456,16 +497,16 @@
             <span data-i18n="cta.title.1">Deine Spende</span>
             <span class="hand cta-title-em" data-i18n="cta.title.2">verändert Leben.</span>
           </h2>
-          <p class="lede" data-i18n="cta.lede">Jeder Euro fließt direkt in den Bau des Brunnens in Kisangasa. Edith dokumentiert jeden Schritt vor Ort.</p>
+          <p class="lede" data-i18n="cta.lede">Die gesammelten Spenden sind zweckgebunden für den geplanten Brunnenbau in Kisangasa vorgesehen. Sobald es gesicherte neue Schritte gibt, werden sie auf dieser Seite transparent dokumentiert.</p>
 
           <div class="trust-list">
             <div class="trust-item">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg>
-              <span data-i18n="cta.trust.1">100% gehen ins Projekt</span>
+              <span data-i18n="cta.trust.1">Zweckgebunden für das Brunnenprojekt</span>
             </div>
             <div class="trust-item">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg>
-              <span data-i18n="cta.trust.2">Spendenbescheinigung möglich</span>
+              <span data-i18n="cta.trust.2">Informationen zur Spendenbescheinigung werden bereitgestellt</span>
             </div>
             <div class="trust-item">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg>
@@ -485,24 +526,22 @@
             <input type="number" id="donate-custom" class="donate-custom" value="50" min="1" aria-label="€"/>
           </div>
           <div class="donate-impact">
-            <span class="hand">≈</span>
-            <strong id="donate-days">90</strong>
-            <span data-i18n="cta.impact.pre">Tage sauberes Trinkwasser für eine Familie</span>
+            <span data-i18n="cta.impact.pre">Jede Spende bringt das Projekt dem Ziel näher.</span>
           </div>
-          <a id="donate-submit" href="https://4fund.com/de/yhn7nt" target="_blank" rel="noopener" class="btn btn-primary donate-submit">
+          <a id="donate-submit" href="https://4fund.com/de/yhn7nt?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARkhwRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadxLTn0RMiM_cF4spRfqvKI5ZluJ6rOpw2im27KDv0Z7N9_gJL4AGkHdq9Aow_aem_ghL43DMcSc4AULmgLW4beg" target="_blank" rel="noopener noreferrer" class="btn btn-primary donate-submit">
             <svg class="heart-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9.4C.8 7.5 4 3 8.4 3c2 0 3.2.9 3.6 2 .4-1.1 1.6-2 3.6-2 4.4 0 7.6 4.5 6 8.6C19.5 16.3 12 21 12 21z"/></svg>
             <span><span id="donate-btn-amount">50</span> € <span data-i18n="cta.submit">spenden</span></span>
           </a>
           <div class="donate-methods">
             <span data-i18n="cta.or">oder</span>
-            <a href="https://4fund.com/de/yhn7nt" target="_blank" rel="noopener" class="donate-method">4fund.com</a>
+            <a href="https://4fund.com/de/yhn7nt?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARkhwRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadxLTn0RMiM_cF4spRfqvKI5ZluJ6rOpw2im27KDv0Z7N9_gJL4AGkHdq9Aow_aem_ghL43DMcSc4AULmgLW4beg" target="_blank" rel="noopener noreferrer" class="donate-method">4fund.com</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <a href="https://4fund.com/de/yhn7nt" target="_blank" rel="noopener" class="floating-donate" id="floating-donate" data-i18n="floating.donate">Jetzt spenden →</a>
+  <a href="https://4fund.com/de/yhn7nt?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARkhwRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadxLTn0RMiM_cF4spRfqvKI5ZluJ6rOpw2im27KDv0Z7N9_gJL4AGkHdq9Aow_aem_ghL43DMcSc4AULmgLW4beg" target="_blank" rel="noopener noreferrer" class="floating-donate" id="floating-donate" data-i18n="floating.donate">Jetzt spenden →</a>
 
   <!-- ── FOOTER ── -->
   <footer id="kontakt" data-screen-label="Footer">
@@ -531,16 +570,16 @@
         <div>
           <h4 data-i18n="footer.contact">Kontakt</h4>
           <div class="footer-col-list">
-            <a href="mailto:edith@brunnen-tansania.de">edith@brunnen-tansania.de</a>
-            <a href="https://4fund.com/de/yhn7nt" target="_blank" rel="noopener">4fund.com</a>
+            <a href="kontakt.html">Kontaktadresse wird ergänzt</a>
+            <a href="https://4fund.com/de/yhn7nt?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARkhwRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadxLTn0RMiM_cF4spRfqvKI5ZluJ6rOpw2im27KDv0Z7N9_gJL4AGkHdq9Aow_aem_ghL43DMcSc4AULmgLW4beg" target="_blank" rel="noopener noreferrer">4fund.com</a>
           </div>
         </div>
         <div>
           <h4 data-i18n="footer.legal">Rechtliches</h4>
           <div class="footer-col-list">
-            <a href="#" data-i18n="footer.imprint">Impressum</a>
-            <a href="#" data-i18n="footer.privacy">Datenschutz</a>
-            <a href="#" data-i18n="footer.receipt">Spendenbescheinigung</a>
+            <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
+            <a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
+            <a href="spendenbescheinigung.html" data-i18n="footer.receipt">Spendenbescheinigung</a>
           </div>
         </div>
       </div>

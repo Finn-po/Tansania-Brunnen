@@ -1,10 +1,10 @@
 /* ─────────────────────────────────────────────
    BRUNNEN FÜR TANSANIA — script.js (Vanilla JS)
    - i18n (DE/EN), Sprachumschalter
-   - Spendenformular & Impact-Berechnung
+   - Spendenformular
    - FAQ-Akkordeon
    - Galerie (dynamisch)
-   - Brunnenbau-Timeline
+   - Projektplan-Timeline
    - Spendenbalken-Animation
    ───────────────────────────────────────────── */
 
@@ -19,14 +19,14 @@ const I18N = {
     'nav.faq': 'FAQ',
     'nav.contact': 'Kontakt',
     'nav.donate': 'Spenden',
-    'nav.build': 'Der Bau',
+    'nav.build': 'Projektplan',
 
     'hero.location': 'Kisangasa · Tansania',
     'hero.title.1': 'Ein Brunnen.',
     'hero.title.2': 'Eine Zukunft.',
     'hero.lede': 'In Kisangasa laufen Frauen und Kinder jeden Tag viele Kilometer für Wasser. Gemeinsam können wir das ändern — ein Dorf, ein Brunnen, eine Zukunft.',
     'hero.cta.donate': 'Jetzt spenden',
-    'hero.cta.story': 'Die Geschichte lesen →',
+    'hero.cta.story': 'Projekt verstehen',
     'hero.tagline': 'Jeder Tropfen zählt.',
     'hero.caption': 'Kisangasa, 2025',
     'hero.raised': 'gesammelt',
@@ -34,6 +34,7 @@ const I18N = {
     'hero.goal': 'Spendenziel',
     'hero.remaining_pre': 'Noch',
     'hero.remaining_post': 'bis zum ersten Brunnen',
+    'hero.updated': 'Stand: Datum bitte aktualisieren',
     'floating.donate': 'Jetzt spenden →',
 
     'story.eyebrow': 'Die Geschichte',
@@ -60,10 +61,10 @@ const I18N = {
     'value.hope.title': 'Hoffnung für die Zukunft',
     'value.hope.text': 'Ein Brunnen bedeutet Würde — und einen Anfang.',
 
-    'gallery.eyebrow': 'Einblicke',
+    'gallery.eyebrow': 'Einblicke aus Kisangasa',
     'gallery.title.1': 'Bilder aus',
     'gallery.title.2': 'Kisangasa.',
-    'gallery.aside': '…Worte reichen nicht.',
+    'gallery.aside': 'Momente, die zeigen, warum Hilfe gebraucht wird.',
 
     'events.eyebrow': 'Aktionen & Events',
     'events.title.1': 'So sammeln wir',
@@ -85,35 +86,39 @@ const I18N = {
     'event.3.tag': 'Vor Ort',
     'event.3.date': 'Geplant 2026',
     'event.3.title': 'Der echte Brunnen',
-    'event.3.text': 'Wenn das Spendenziel erreicht ist: Bau, Inbetriebnahme und Übergabe an die Dorfgemeinschaft in Kisangasa. Dokumentiert auf dieser Seite.',
+    'event.3.text': 'Wenn das Spendenziel erreicht ist, werden die nächsten Schritte zur Umsetzung vorbereitet und transparent dokumentiert.',
     'event.3.where': 'Kisangasa',
 
-    'build.eyebrow': 'Es geht los',
-    'build.title.1': 'Der Brunnen',
-    'build.title.2': 'entsteht.',
-    'build.lede': 'Dank eurer Spenden hat der Bau begonnen. Hier seht ihr, wie aus Steinen, Erde und Hoffnung Wirklichkeit wird — Schritt für Schritt, direkt in Kisangasa.',
+    'build.eyebrow': 'Projektplan',
+    'build.title.1': 'So soll der Brunnen',
+    'build.title.2': 'entstehen.',
+    'build.lede': 'Der Bau hat noch nicht begonnen. Diese Schritte sind geplant, sobald die Finanzierung gesichert und die Umsetzung vor Ort abgestimmt ist.',
+    'build.status': 'Aktueller Stand: Spendensammlung läuft.',
     'build.step.1.label': 'Schritt 1',
-    'build.step.1.title': 'Die Fundamente',
-    'build.step.1.text': 'Die ersten Steine werden gesetzt. Der Brunnenschacht beginnt Form anzunehmen — Stein für Stein, mit den Händen der Menschen vor Ort.',
+    'build.step.1.title': 'Spendenziel erreichen',
+    'build.step.1.text': 'Zuerst müssen die fehlenden Mittel gesammelt werden, damit die nächsten Schritte verantwortungsvoll geplant werden können.',
     'build.step.2.label': 'Schritt 2',
-    'build.step.2.title': 'Der Wassertank kommt',
-    'build.step.2.text': 'Ein großer Kiboko-Wassertank wird angeliefert — er wird das gepumpte Wasser speichern, damit das Dorf jederzeit Zugang hat.',
+    'build.step.2.title': 'Abstimmung vor Ort',
+    'build.step.2.text': 'Nach gesicherter Finanzierung erfolgt die Abstimmung mit Ansprechpartnern in Kisangasa und den zuständigen Beteiligten.',
     'build.step.3.label': 'Schritt 3',
-    'build.step.3.title': 'Mauerwerk & Armierung',
-    'build.step.3.text': 'Die Brunnenmauer wächst. Stahlgeflecht verstärkt die Konstruktion, damit der Brunnen Jahrzehnte hält. Echte Handarbeit, echter Stolz.',
+    'build.step.3.title': 'Umsetzung vorbereiten',
+    'build.step.3.text': 'Material, Ablauf, Zuständigkeiten und weitere Voraussetzungen werden vorbereitet, bevor ein Baubeginn kommuniziert wird.',
     'build.step.4.label': 'Schritt 4',
-    'build.step.4.title': 'Der Deckel wird gegossen',
-    'build.step.4.text': 'Beton wird in die Form gegossen — der Abdeckstein entsteht. Er schützt das Wasser vor Verunreinigung und macht den Brunnen fertig.',
+    'build.step.4.title': 'Brunnenbau starten',
+    'build.step.4.text': 'Erst wenn Finanzierung und Abstimmung gesichert sind, kann der tatsächliche Brunnenbau beginnen.',
     'build.step.5.label': 'Schritt 5',
-    'build.step.5.title': 'Die Pumpe steht',
-    'build.step.5.text': 'Das Herzstück ist eingebaut: die Pumpe. Mit dem Stahlgerüst für die Solaranlage dahinter wird bald sauberes Wasser fließen.',
-    'build.quote': '„Ich hab geweint, als ich die Bilder gesehen habe. Es wird wirklich wahr."',
-    'build.quote.sig': '— Edith',
+    'build.step.5.title': 'Fortschritt dokumentieren',
+    'build.step.5.text': 'Gesicherte neue Schritte werden auf dieser Website transparent dokumentiert.',
+    'build.step.6.label': 'Schritt 6',
+    'build.step.6.title': 'Fertigstellung ermöglichen',
+    'build.step.6.text': 'Ziel ist die Fertigstellung und Übergabe eines funktionierenden Brunnens an die Menschen in Kisangasa.',
+    'build.quote': 'Jede Unterstützung bringt uns dem Ziel näher: sauberes Wasser für Kisangasa.',
+    'build.quote.sig': 'Projektstand',
 
     'updates.eyebrow': 'Neuigkeiten',
-    'updates.title.1': 'So weit',
-    'updates.title.2': 'sind wir.',
-    'updates.lede': 'Stand der Aktionen, kleine Erfolge, Begegnungen.',
+    'updates.title.1': 'Was bisher',
+    'updates.title.2': 'passiert ist.',
+    'updates.lede': 'Aktionen, Reiseeindrücke und der nächste große Schritt: das Erreichen des Spendenziels.',
     'update.1.date': 'Mai 2025',
     'update.1.title': 'Trödelmarkt-Erfolg',
     'update.1.text': 'Beim Nachttrödelmarkt am 29.05. kamen weitere Spenden zusammen — und viele neue Unterstützer.',
@@ -126,28 +131,32 @@ const I18N = {
 
     'faq.eyebrow': 'Häufige Fragen',
     'faq.title': 'Was du wissen solltest.',
-    'faq.q1': 'Wo geht das Geld hin?',
-    'faq.a1': '100% der Spenden fließen in den Bau des Brunnens in Kisangasa, Tansania. Material, Bohrung, Wasserqualitätsprüfung und Übergabe an die Dorfgemeinschaft sind enthalten.',
-    'faq.q2': 'Bekomme ich eine Spendenbescheinigung?',
-    'faq.a2': 'Eine Spendenbescheinigung ist je nach Spendenweg möglich. Details findest du im Spendenformular bei 4fund.com.',
-    'faq.q3': 'Wer steckt dahinter?',
-    'faq.a3': 'Edith Cielma — Mutter, Reisende und Initiatorin. Das Projekt ist privat unterstützt und wird transparent dokumentiert.',
-    'faq.q4': 'Wie wird der Brunnen gebaut?',
-    'faq.a4': 'Sobald das Ziel erreicht ist, koordiniert Edith mit Verantwortlichen vor Ort: Material, Bohrung, Test, Übergabe. Bilder und Updates erscheinen hier.',
-    'faq.q5': 'Was, wenn mehr zusammenkommt?',
-    'faq.a5': 'Mehrspenden fließen in Folgeprojekte rund um den Brunnen — z.B. Wasserleitungen, Schulversorgung oder einen zweiten Brunnen.',
-    'faq.q6': 'Wie kann ich helfen, ohne Geld?',
-    'faq.a6': 'Aktion in deiner Schule oder Firma starten, Seite teilen, Edith schreiben. Jede Idee ist willkommen.',
+    'faq.q1': 'Hat der Brunnenbau schon begonnen?',
+    'faq.a1': 'Nein. Aktuell läuft die Spendensammlung. Die Umsetzung beginnt erst nach gesicherter Finanzierung und Abstimmung vor Ort.',
+    'faq.q2': 'Wer steht hinter der Spendensammlung?',
+    'faq.a2': 'Edith Cielma unterstützt das Projekt und sammelt Spenden für den geplanten Brunnenbau in Kisangasa.',
+    'faq.q3': 'Wofür wird das Geld verwendet?',
+    'faq.a3': 'Die gesammelten Spenden sind zweckgebunden für den geplanten Brunnenbau und notwendige Schritte im Zusammenhang mit der Umsetzung vorgesehen.',
+    'faq.q4': 'Wie kann ich spenden?',
+    'faq.a4': 'Über den externen Spendenlink auf 4fund.',
+    'faq.q5': 'Was passiert, wenn das Spendenziel erreicht ist?',
+    'faq.a5': 'Dann werden die nächsten Schritte zur Umsetzung vorbereitet und transparent auf dieser Website dokumentiert.',
+    'faq.q6': 'Was passiert, wenn mehr Geld gesammelt wird?',
+    'faq.a6': 'Zusätzliche Mittel sollen ebenfalls zweckgebunden im Zusammenhang mit dem Brunnenprojekt oder notwendiger Unterstützung vor Ort verwendet werden.',
+    'faq.q7': 'Gibt es eine Spendenbescheinigung?',
+    'faq.a7': 'Informationen dazu werden transparent bereitgestellt. Eine verbindliche Zusage wird erst formuliert, wenn die konkrete Abwicklung rechtssicher bestätigt ist.',
+    'faq.q8': 'Wie wird der Fortschritt dokumentiert?',
+    'faq.a8': 'Über Updates auf dieser Website, sobald neue gesicherte Informationen vorliegen.',
 
     'cta.eyebrow': 'Jetzt mithelfen',
     'cta.title.1': 'Deine Spende',
     'cta.title.2': 'verändert Leben.',
-    'cta.lede': 'Jeder Euro fließt direkt in den Bau des Brunnens in Kisangasa. Edith dokumentiert jeden Schritt vor Ort.',
-    'cta.trust.1': '100% gehen ins Projekt',
-    'cta.trust.2': 'Spendenbescheinigung möglich',
-    'cta.trust.3': 'Persönlich vor Ort begleitet',
+    'cta.lede': 'Die gesammelten Spenden sind zweckgebunden für den geplanten Brunnenbau in Kisangasa vorgesehen. Sobald es gesicherte neue Schritte gibt, werden sie auf dieser Seite transparent dokumentiert.',
+    'cta.trust.1': 'Zweckgebunden für das Brunnenprojekt',
+    'cta.trust.2': 'Informationen zur Spendenbescheinigung werden bereitgestellt',
+    'cta.trust.3': 'Fortschritt wird transparent dokumentiert',
     'cta.form.label': 'Ich spende einmalig',
-    'cta.impact.pre': 'Tage sauberes Trinkwasser für eine Familie',
+    'cta.impact.pre': 'Jede Spende bringt das Projekt dem Ziel näher.',
     'cta.submit': 'spenden',
     'cta.or': 'oder',
 
@@ -159,6 +168,21 @@ const I18N = {
     'about.p2': 'Seitdem organisiert sie Aktionen, bäckt Brunnen-Torten, malt Reifen an, und sammelt — Euro für Euro, Herz für Herz — für einen echten Brunnen in Kisangasa.',
     'about.quote': '„Ich kann vielleicht nicht die ganze Welt verändern, aber die Welt für ein Dorf."',
     'about.tag': 'Edith Cielma',
+
+    'transparency.eyebrow': 'Transparenz',
+    'transparency.title': 'Was aktuell gesichert ist.',
+    'transparency.q1': 'Wer sammelt?',
+    'transparency.a1': 'Edith Cielma.',
+    'transparency.q2': 'Wofür wird gesammelt?',
+    'transparency.a2': 'Für einen geplanten Brunnenbau in Kisangasa, Tansania.',
+    'transparency.q3': 'Hat der Bau begonnen?',
+    'transparency.a3': 'Nein. Aktuell läuft die Spendensammlung.',
+    'transparency.q4': 'Wie wird gespendet?',
+    'transparency.a4': 'Über die externe Plattform 4fund.',
+    'transparency.q5': 'Wie wird der Fortschritt dokumentiert?',
+    'transparency.a5': 'Über Updates auf dieser Website, sobald neue gesicherte Informationen vorliegen.',
+    'transparency.q6': 'Spendenbescheinigung',
+    'transparency.a6': 'Informationen zur Spendenbescheinigung werden transparent bereitgestellt.',
 
     'footer.about': 'Ein Brunnen für Kisangasa — sauberes Wasser für ein ganzes Dorf. Privat unterstützt, transparent dokumentiert.',
     'footer.pages': 'Seiten',
@@ -192,14 +216,14 @@ const I18N = {
     'nav.faq': 'FAQ',
     'nav.contact': 'Contact',
     'nav.donate': 'Donate',
-    'nav.build': 'The Build',
+    'nav.build': 'Project plan',
 
     'hero.location': 'Kisangasa · Tanzania',
     'hero.title.1': 'One well.',
     'hero.title.2': 'One future.',
     'hero.lede': 'In Kisangasa, women and children walk for kilometers every day to fetch water. Together we can change that — one village, one well, one future.',
     'hero.cta.donate': 'Donate now',
-    'hero.cta.story': 'Read the story →',
+    'hero.cta.story': 'Understand the project',
     'hero.tagline': 'Every drop matters.',
     'hero.caption': 'Kisangasa, 2025',
     'hero.raised': 'raised',
@@ -207,6 +231,7 @@ const I18N = {
     'hero.goal': 'goal',
     'hero.remaining_pre': 'Still',
     'hero.remaining_post': 'to the first well',
+    'hero.updated': 'Status: date to be updated',
     'floating.donate': 'Donate now →',
 
     'story.eyebrow': 'The story',
@@ -233,10 +258,10 @@ const I18N = {
     'value.hope.title': 'Hope for the future',
     'value.hope.text': 'A well means dignity — and a beginning.',
 
-    'gallery.eyebrow': 'Glimpses',
+    'gallery.eyebrow': 'Glimpses from Kisangasa',
     'gallery.title.1': 'Images from',
     'gallery.title.2': 'Kisangasa.',
-    'gallery.aside': '…words are not enough.',
+    'gallery.aside': 'Moments that show why help is needed.',
 
     'events.eyebrow': 'Events & actions',
     'events.title.1': 'How we raise',
@@ -258,35 +283,39 @@ const I18N = {
     'event.3.tag': 'On-site',
     'event.3.date': 'Planned 2026',
     'event.3.title': 'The real well',
-    'event.3.text': 'Once the goal is reached: construction, commissioning and handover to the village community in Kisangasa.',
+    'event.3.text': 'Once the donation goal is reached, the next implementation steps will be prepared and documented transparently.',
     'event.3.where': 'Kisangasa',
 
-    'build.eyebrow': "It's happening",
-    'build.title.1': 'The well is being',
-    'build.title.2': 'built.',
-    'build.lede': "Thanks to your donations, construction has begun. Here you can see how stones, earth and hope become reality — step by step, right in Kisangasa.",
+    'build.eyebrow': 'Project plan',
+    'build.title.1': 'How the well is',
+    'build.title.2': 'planned.',
+    'build.lede': 'Construction has not started yet. These steps are planned once funding is secured and implementation has been coordinated on site.',
+    'build.status': 'Current status: fundraising is ongoing.',
     'build.step.1.label': 'Step 1',
-    'build.step.1.title': 'The foundations',
-    'build.step.1.text': 'The first stones are being laid. The well shaft begins to take shape — stone by stone, with the hands of the people on site.',
+    'build.step.1.title': 'Reach the donation goal',
+    'build.step.1.text': 'First, the missing funds need to be collected so the next steps can be planned responsibly.',
     'build.step.2.label': 'Step 2',
-    'build.step.2.title': 'The water tank arrives',
-    'build.step.2.text': 'A large Kiboko water tank is delivered — it will store the pumped water so the village has access at any time.',
+    'build.step.2.title': 'Coordinate locally',
+    'build.step.2.text': 'After funding is secured, the project will be coordinated with local contacts and responsible participants in Kisangasa.',
     'build.step.3.label': 'Step 3',
-    'build.step.3.title': 'Masonry & reinforcement',
-    'build.step.3.text': 'The well wall grows. Steel mesh reinforces the construction so the well lasts for decades. Real craftsmanship, real pride.',
+    'build.step.3.title': 'Prepare implementation',
+    'build.step.3.text': 'Materials, process, responsibilities and further requirements will be prepared before a construction start is communicated.',
     'build.step.4.label': 'Step 4',
-    'build.step.4.title': 'The cover is cast',
-    'build.step.4.text': 'Concrete is poured into the mold — the cover stone takes shape. It protects the water from contamination and completes the well.',
+    'build.step.4.title': 'Start well construction',
+    'build.step.4.text': 'The actual construction can begin only once funding and coordination are secured.',
     'build.step.5.label': 'Step 5',
-    'build.step.5.title': 'The pump is in',
-    'build.step.5.text': 'The heart of it all is installed: the pump. With the solar panel frame behind it, clean water will soon flow.',
-    'build.quote': '"I cried when I saw the pictures. It\'s actually becoming real."',
-    'build.quote.sig': '— Edith',
+    'build.step.5.title': 'Document progress',
+    'build.step.5.text': 'Verified new steps will be documented transparently on this website.',
+    'build.step.6.label': 'Step 6',
+    'build.step.6.title': 'Enable completion',
+    'build.step.6.text': 'The goal is completion and handover of a functioning well for the people of Kisangasa.',
+    'build.quote': 'Every contribution brings us closer to the goal: clean water for Kisangasa.',
+    'build.quote.sig': 'Project status',
 
     'updates.eyebrow': 'News',
-    'updates.title.1': 'How',
-    'updates.title.2': 'far we are.',
-    'updates.lede': 'Status of actions, small wins, encounters.',
+    'updates.title.1': 'What has',
+    'updates.title.2': 'happened so far.',
+    'updates.lede': 'Actions, travel impressions and the next big step: reaching the donation goal.',
     'update.1.date': 'May 2025',
     'update.1.title': 'Flea market success',
     'update.1.text': 'The night flea market on May 29 brought more donations — and many new supporters.',
@@ -299,28 +328,32 @@ const I18N = {
 
     'faq.eyebrow': 'Frequent questions',
     'faq.title': 'What you should know.',
-    'faq.q1': 'Where does the money go?',
-    'faq.a1': '100% of donations go into building the well in Kisangasa, Tanzania. Material, drilling, water quality testing and handover to the village are included.',
-    'faq.q2': 'Do I get a donation receipt?',
-    'faq.a2': 'A receipt is possible depending on the channel. Details are in the donation form on 4fund.com.',
-    'faq.q3': 'Who is behind this?',
-    'faq.a3': 'Edith Cielma — mother, traveler, initiator. The project is privately supported and transparently documented.',
-    'faq.q4': 'How is the well built?',
-    'faq.a4': 'Once the goal is reached, Edith coordinates with on-site partners: material, drilling, testing, handover. Pictures and updates appear here.',
-    'faq.q5': 'What if more is collected?',
-    'faq.a5': 'Surplus goes into follow-up projects — water lines, school supply, or a second well.',
-    'faq.q6': 'How can I help without money?',
-    'faq.a6': 'Run an action at school or work, share this page, write to Edith. Every idea is welcome.',
+    'faq.q1': 'Has construction already started?',
+    'faq.a1': 'No. Fundraising is currently ongoing. Implementation starts only after secured funding and coordination on site.',
+    'faq.q2': 'Who is behind the fundraising?',
+    'faq.a2': 'Edith Cielma supports the project and collects donations for the planned well construction in Kisangasa.',
+    'faq.q3': 'What will the money be used for?',
+    'faq.a3': 'The collected donations are intended for the planned well construction and necessary steps connected with implementation.',
+    'faq.q4': 'How can I donate?',
+    'faq.a4': 'Via the external donation link on 4fund.',
+    'faq.q5': 'What happens when the donation goal is reached?',
+    'faq.a5': 'The next implementation steps will be prepared and documented transparently on this website.',
+    'faq.q6': 'What happens if more money is collected?',
+    'faq.a6': 'Additional funds should also be used for the well project or necessary support on site.',
+    'faq.q7': 'Is there a donation receipt?',
+    'faq.a7': 'Information will be provided transparently. A binding statement will only be made once the concrete handling has been legally confirmed.',
+    'faq.q8': 'How will progress be documented?',
+    'faq.a8': 'Through updates on this website as soon as new verified information is available.',
 
     'cta.eyebrow': 'Help now',
     'cta.title.1': 'Your donation',
     'cta.title.2': 'changes lives.',
-    'cta.lede': 'Every euro goes directly into the well in Kisangasa. Edith documents every step on site.',
-    'cta.trust.1': '100% goes to the project',
-    'cta.trust.2': 'Donation receipt possible',
-    'cta.trust.3': 'Personally accompanied on site',
+    'cta.lede': 'The collected donations are intended for the planned well construction in Kisangasa. As soon as there are verified new steps, they will be documented transparently on this website.',
+    'cta.trust.1': 'Dedicated to the well project',
+    'cta.trust.2': 'Donation receipt information will be provided',
+    'cta.trust.3': 'Progress will be documented transparently',
     'cta.form.label': 'I donate once',
-    'cta.impact.pre': 'days of clean water for a family',
+    'cta.impact.pre': 'Every donation brings the project closer to its goal.',
     'cta.submit': 'donate',
     'cta.or': 'or',
 
@@ -332,6 +365,21 @@ const I18N = {
     'about.p2': 'Since then she has organized actions, baked well-cakes, painted tires, and collected — euro by euro, heart by heart — for a real well in Kisangasa.',
     'about.quote': '"I may not change the whole world, but the world for one village."',
     'about.tag': 'Edith Cielma',
+
+    'transparency.eyebrow': 'Transparency',
+    'transparency.title': 'What is currently confirmed.',
+    'transparency.q1': 'Who is collecting?',
+    'transparency.a1': 'Edith Cielma.',
+    'transparency.q2': 'What is being collected for?',
+    'transparency.a2': 'For a planned well construction in Kisangasa, Tanzania.',
+    'transparency.q3': 'Has construction started?',
+    'transparency.a3': 'No. Fundraising is currently ongoing.',
+    'transparency.q4': 'How can donations be made?',
+    'transparency.a4': 'Via the external platform 4fund.',
+    'transparency.q5': 'How will progress be documented?',
+    'transparency.a5': 'Through updates on this website as soon as new verified information is available.',
+    'transparency.q6': 'Donation receipt',
+    'transparency.a6': 'Information about donation receipts will be provided transparently.',
 
     'footer.about': 'A well for Kisangasa — clean water for a whole village. Privately supported, transparently documented.',
     'footer.pages': 'Pages',
@@ -399,7 +447,7 @@ function renderGallery() {
     const fig = document.createElement('figure');
     fig.className = `gallery-tile gallery-tile-${idx}`;
     fig.innerHTML = `
-      <img src="${src}" alt="${cap}" class="img-fit"/>
+      <img src="${src}" alt="${cap}" class="img-fit" loading="lazy"/>
       <figcaption>
         <span class="gallery-label">${label}</span>
         <span class="gallery-cap">${cap}</span>
@@ -411,24 +459,22 @@ function renderGallery() {
 
 /* ── Build Steps ── */
 const BUILD_STEPS = [
-  { img: 'images/image-1.jpg', key: 1 },
-  { img: 'images/image-2.jpg', key: 2 },
-  { img: 'images/image-3.jpg', key: 3 },
-  { img: 'images/image-4.jpg', key: 4 },
-  { img: 'images/image-5.jpg', key: 5 },
+  { key: 1 },
+  { key: 2 },
+  { key: 3 },
+  { key: 4 },
+  { key: 5 },
+  { key: 6 },
 ];
 
 function renderBuildSteps() {
   const container = document.getElementById('build-steps');
   if (!container) return;
   container.innerHTML = '';
-  BUILD_STEPS.forEach(({ img, key }, idx) => {
+  BUILD_STEPS.forEach(({ key }, idx) => {
     const step = document.createElement('div');
-    step.className = `build-step ${idx % 2 === 0 ? 'build-step-left' : 'build-step-right'}`;
+    step.className = 'build-step';
     step.innerHTML = `
-      <div class="build-step-img">
-        <img src="${img}" alt="${t(`build.step.${key}.title`)}" class="img-fit"/>
-      </div>
       <div class="build-step-content">
         <div class="build-step-label">${t(`build.step.${key}.label`)}</div>
         <h3 class="build-step-title">${t(`build.step.${key}.title`)}</h3>
@@ -444,7 +490,7 @@ function renderFAQ() {
   const list = document.getElementById('faq-list');
   if (!list) return;
   list.innerHTML = '';
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= 8; i++) {
     const item = document.createElement('div');
     item.className = 'faq-item';
     if (i === 1) item.classList.add('open');
@@ -479,9 +525,6 @@ function setDonateAmount(amount) {
   });
   const customInput = document.getElementById('donate-custom');
   if (customInput && Number(customInput.value) !== amount) customInput.value = amount;
-  const days = Math.round(amount * 1.8);
-  const daysEl = document.getElementById('donate-days');
-  if (daysEl) daysEl.textContent = days;
   const btnAmt = document.getElementById('donate-btn-amount');
   if (btnAmt) btnAmt.textContent = amount;
 }

@@ -491,6 +491,10 @@ h2 .hand-underline {
   width: 100%;
   object-fit: cover;
 }
+.polaroid .image-zoom-trigger {
+  height: auto;
+  aspect-ratio: 4 / 5;
+}
 .polaroid figcaption {
   position: absolute;
   bottom: 8px;
@@ -661,8 +665,56 @@ h2 .hand-underline {
   position: relative;
   background: var(--paper-2);
 }
-.event-img-wrap img { transition: transform .8s; }
-.event-card:hover .event-img-wrap img { transform: scale(1.05); }
+.image-zoom-trigger {
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  font: inherit;
+}
+.image-zoom-trigger img { transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .35s ease; }
+.image-zoom-trigger:hover img,
+.image-zoom-trigger:focus-visible img,
+.event-card:hover .image-zoom-trigger img {
+  transform: scale(1.06) rotate(.4deg);
+  filter: saturate(1.08) contrast(1.04);
+}
+.image-zoom-trigger:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--terracotta) 70%, white);
+  outline-offset: -3px;
+}
+.image-zoom-cue {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.92);
+  color: var(--blue);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+  transform: translateY(8px) scale(.85);
+  opacity: 0;
+  transition: opacity .25s ease, transform .25s ease, background .2s ease;
+}
+.image-zoom-trigger:hover .image-zoom-cue,
+.image-zoom-trigger:focus-visible .image-zoom-cue,
+.event-card:hover .image-zoom-cue {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
 .event-cake-overlay {
   position: absolute;
   bottom: 12px; right: 12px;
@@ -748,8 +800,16 @@ h2 .hand-underline {
   min-height: 300px;
   background: var(--paper-2);
 }
+.planned-action-media .image-zoom-trigger {
+  position: absolute;
+  inset: 0;
+}
 .planned-action-media img {
   object-position: center top;
+}
+.planned-action-media .image-zoom-trigger:hover img,
+.planned-action-media .image-zoom-trigger:focus-visible img {
+  transform: scale(1.07) rotate(-.35deg);
 }
 .poster-label {
   position: absolute;
@@ -764,6 +824,67 @@ h2 .hand-underline {
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(16,40,69,.76);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+}
+.image-lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.image-lightbox-inner {
+  position: relative;
+  max-width: min(920px, 92vw);
+  max-height: 86vh;
+  transform: translateY(18px) scale(.94);
+  opacity: 0;
+  transition: transform .34s cubic-bezier(.2,.8,.2,1), opacity .24s ease;
+}
+.image-lightbox.open .image-lightbox-inner {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.image-lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 86vh;
+  border-radius: 14px;
+  object-fit: contain;
+  box-shadow: 0 24px 80px rgba(0,0,0,.36);
+}
+.image-lightbox-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: white;
+  color: var(--blue);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+}
+.image-lightbox-close:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
 }
 .planned-action-body {
   padding: 30px 30px 32px 0;

@@ -78,7 +78,7 @@ const I18N = {
     'event.2.date': 'Bald',
     'event.2.title': 'Nachttrödel — Stand mieten & helfen',
     'event.2.text': 'Bald findet ein Nachttrödelmarkt statt — und du kannst dabei sein. Für 30 € kannst du dir einen eigenen Stand mieten. Die Standgebühr fließt zu 100 % direkt an die Kinder in Kisangasa. Verkauf, was du nicht mehr brauchst — und hilf dabei, einen Brunnen zu bauen.',
-    'event.2.where': 'Hattingen, Rathausplatz',
+    'event.2.where': 'Mortimer Englisch Club, Hattingen',
     'event.2.poster': 'Symbolbild',
     'event.3.tag': 'Vor Ort',
     'event.3.date': 'Geplant 2026',
@@ -265,7 +265,7 @@ const I18N = {
     'event.2.date': 'Soon',
     'event.2.title': 'Night flea market — rent a stand & help',
     'event.2.text': 'A night flea market is coming soon — and you can be part of it. For 30 €, you can rent your own stand. The stand fee goes 100% directly to the children in Kisangasa. Sell what you no longer need — and help build a well.',
-    'event.2.where': 'Hattingen, Rathausplatz',
+    'event.2.where': 'Mortimer Englisch Club, Hattingen',
     'event.2.poster': 'Reference image',
     'event.3.tag': 'On-site',
     'event.3.date': 'Planned 2026',
@@ -568,6 +568,56 @@ function initFloatingDonate() {
   window.addEventListener('resize', update);
 }
 
+/* ── Image lightbox ── */
+function initImageLightbox() {
+  const triggers = document.querySelectorAll('[data-lightbox-src]');
+  if (!triggers.length) return;
+
+  const lightbox = document.createElement('div');
+  lightbox.className = 'image-lightbox';
+  lightbox.setAttribute('role', 'dialog');
+  lightbox.setAttribute('aria-modal', 'true');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lightbox.innerHTML = `
+    <div class="image-lightbox-inner">
+      <button class="image-lightbox-close" type="button" aria-label="Bild schließen">×</button>
+      <img src="" alt=""/>
+    </div>
+  `;
+  document.body.appendChild(lightbox);
+
+  const img = lightbox.querySelector('img');
+  const closeBtn = lightbox.querySelector('.image-lightbox-close');
+  let lastTrigger = null;
+
+  const close = () => {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastTrigger) lastTrigger.focus();
+  };
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      lastTrigger = trigger;
+      img.src = trigger.dataset.lightboxSrc;
+      img.alt = trigger.dataset.lightboxAlt || '';
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => lightbox.classList.add('open'));
+      closeBtn.focus();
+    });
+  });
+
+  closeBtn.addEventListener('click', close);
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) close();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && lightbox.classList.contains('open')) close();
+  });
+}
+
 /* ── Boot ── */
 document.addEventListener('DOMContentLoaded', () => {
   renderFAQ();
@@ -578,4 +628,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initDonateForm();
   initProgressBar();
   initFloatingDonate();
+  initImageLightbox();
 });

@@ -11,7 +11,9 @@
 const I18N = {
   de: {
     'nav.story': 'Geschichte',
-    'nav.gallery': 'Galerie',
+    'nav.gallery': 'Für wen wir sammeln',
+    'nav.help': 'Für wen wir sammeln',
+    'nav.help.href': '/fuer-wen-wir-sammeln',
     'nav.events': 'Aktionen',
     'nav.updates': 'Updates',
     'nav.about': 'Über Edith',
@@ -56,10 +58,58 @@ const I18N = {
     'value.hope.title': 'Würde für die Gemeinschaft',
     'value.hope.text': 'Wasser im eigenen Dorf bedeutet mehr als Versorgung. Es bedeutet Selbstbestimmung, Sicherheit und Hoffnung für eine ganze Generation.',
 
-    'gallery.eyebrow': 'Einblicke aus Kisangasa',
-    'gallery.title.1': 'Bilder aus',
-    'gallery.title.2': 'Kisangasa.',
-    'gallery.aside': 'Momente, die zeigen, warum Hilfe gebraucht wird.',
+    'help.meta.title': 'Für wen wir sammeln – Brunnen für Tansania',
+    'help.hero.eyebrow': 'DIE MENSCHEN VON KISANGASA',
+    'help.hero.title.1': 'Für',
+    'help.hero.title.2': 'sie',
+    'help.hero.title.3': 'sammeln wir.',
+    'help.hero.intro': 'Hinter jedem Brunnen stehen Menschen. Hier sind einige von ihnen — die Kinder, Mütter und Familien aus Kisangasa, für die sauberes Wasser den Alltag verändern wird.',
+    'help.people.eyebrow': 'Die Menschen',
+    'help.people.title': 'Die Menschen',
+    'help.person.1.name': 'John',
+    'help.person.1.age': '2 Jahre',
+    'help.person.1.text': 'John ist noch klein — gerade zwei Jahre alt. Er entdeckt jeden Tag die Welt um sich herum, lacht viel und liebt es, von seiner Mutter herumgetragen zu werden. Damit er gesund aufwachsen kann, braucht er etwas, das jedes Kind braucht: sauberes Wasser von Anfang an.',
+    'help.person.1.alt': 'John, 2 Jahre, aus Kisangasa',
+    'help.person.2.name': 'Melody',
+    'help.person.2.age': '6 Jahre',
+    'help.person.2.text': 'Melody ist die Kleine mit dem großen Lachen. Sie versteht noch nicht ganz, warum manche Tage das Wasser krank macht. Ein Brunnen würde ihr etwas geben, das selbstverständlich sein sollte: einen gesunden Start ins Leben.',
+    'help.person.2.alt': 'Melody, 6 Jahre, aus Kisangasa',
+    'help.person.3.name': 'Amani',
+    'help.person.3.age': '11 Jahre',
+    'help.person.3.text': 'Amani ist die Älteste in ihrer Geschwisterreihe und übernimmt früh Verantwortung. Den langen Weg zum Wasserloch geht sie täglich — oft zweimal. Mit einem Brunnen im Dorf bekommt sie ein Stück Kindheit zurück.',
+    'help.person.3.alt': 'Amani, 11 Jahre, aus Kisangasa',
+    'help.person.4.name': 'Neema',
+    'help.person.4.age': '7 Jahre',
+    'help.person.4.text': 'Neema bringt ihre eigene kleine Tasse überall mit hin. Sauberes Wasser ist für sie kein Selbstverständnis — es ist ein Wunsch. Einer, den wir gemeinsam erfüllen können.',
+    'help.person.4.alt': 'Neema, 7 Jahre, aus Kisangasa',
+    'help.person.5.name': 'Baraka',
+    'help.person.5.age': '10 Jahre',
+    'help.person.5.text': 'Baraka ist neugierig, mutig und immer als Erster da, wenn etwas Neues passiert. Er träumt davon, später einmal aus seinem Dorf zu erzählen — und dass die Kinder dort gesund aufwachsen können.',
+    'help.person.5.alt': 'Baraka, 10 Jahre, aus Kisangasa',
+    'help.person.6.name': 'Zawadi',
+    'help.person.6.age': '5 Jahre',
+    'help.person.6.text': 'Zawadi heißt „Geschenk" — und genau das ist sie für ihre Familie. Damit sie gesund bleibt und zur Schule gehen kann, braucht ihr Dorf eines vor allem: sauberes Wasser direkt vor Ort.',
+    'help.person.6.alt': 'Zawadi, 5 Jahre, aus Kisangasa',
+    'help.person.7.name': 'Joseph',
+    'help.person.7.age': '8 Jahre',
+    'help.person.7.text': 'Joseph ist ruhig, beobachtend, und passt auf seine kleinen Geschwister auf. Er weiß genau, wie weit der Weg zum Wasser ist — er geht ihn jeden Tag. Ein Brunnen würde seinen Alltag von Grund auf verändern.',
+    'help.person.7.alt': 'Joseph, 8 Jahre, aus Kisangasa',
+    'help.daily.eyebrow': 'Der Alltag in Kisangasa',
+    'help.daily.title': 'Der Alltag in Kisangasa',
+    'help.daily.1.label': 'Wie Wasser hier transportiert wird',
+    'help.daily.1.text': 'Kanister, Eimer, oft auf dem Kopf oder Rücken — manchmal über mehrere Kilometer. Was wir mit einem Knopfdruck am Wasserhahn bekommen, ist hier harte tägliche Arbeit. Vor allem für Frauen und Kinder.',
+    'help.daily.1.alt': 'Wassertransport mit Kanistern in Kisangasa',
+    'help.daily.2.label': 'Hier soll der Brunnen entstehen',
+    'help.daily.2.text': 'Dieser Ort in Kisangasa ist als Standort für den Brunnen vorgesehen — zentral im Dorf, erreichbar für alle Familien. Sobald die Finanzierung steht und die Abstimmung vor Ort erfolgt ist, beginnt hier der Bau.',
+    'help.daily.2.alt': 'Geplanter Brunnenstandort in Kisangasa',
+    'help.press.eyebrow': 'PRESSE',
+    'help.press.title': 'Das Projekt in den Medien.',
+    'help.press.label': 'Erster Zeitungsartikel — Titelblatt',
+    'help.press.text': 'Die lokale Presse hat über das Projekt berichtet — ein wichtiger Schritt, um noch mehr Menschen für Kisangasa zu gewinnen.',
+    'help.press.alt': 'Zeitungsartikel über das Brunnenprojekt',
+    'help.cta.title': 'Du kannst ihren Alltag verändern.',
+    'help.cta.text': 'Jede Spende bringt Kisangasa einen Schritt näher zu sauberem Wasser — und den Menschen hier ein Stück Würde, Gesundheit und Zukunft.',
+    'help.cta.button': 'Jetzt spenden →',
 
     'events.eyebrow': 'Aktionen & Events',
     'events.title.1': 'So sammeln wir',
@@ -187,21 +237,13 @@ const I18N = {
     'footer.receipt': 'Spendenbescheinigung',
     'footer.thanks': 'Asante sana — Vielen Dank.',
 
-    'gallery.0.label': 'Dorf',
-    'gallery.0.cap': 'Alltag in Kisangasa',
-    'gallery.1.label': 'Kinder',
-    'gallery.1.cap': 'Kind aus Kisangasa',
-    'gallery.2.label': 'Besuch',
-    'gallery.2.cap': 'Edith zu Besuch im Dorf',
-    'gallery.3.label': 'Begegnung',
-    'gallery.3.cap': 'Edith zu Besuch bei Kindern in Kisangasa',
-    'gallery.4.label': 'Porträt',
-    'gallery.4.cap': 'Kind aus Kisangasa',
   },
 
   en: {
     'nav.story': 'Story',
-    'nav.gallery': 'Gallery',
+    'nav.gallery': 'Who we help',
+    'nav.help': 'Who we help',
+    'nav.help.href': '/who-we-help',
     'nav.events': 'Events',
     'nav.updates': 'Updates',
     'nav.about': 'About Edith',
@@ -246,10 +288,58 @@ const I18N = {
     'value.hope.title': 'Dignity for the community',
     'value.hope.text': 'Water in the village means more than supply. It means self-determination, safety, and hope for a whole generation.',
 
-    'gallery.eyebrow': 'Glimpses from Kisangasa',
-    'gallery.title.1': 'Images from',
-    'gallery.title.2': 'Kisangasa.',
-    'gallery.aside': 'Moments that show why help is needed.',
+    'help.meta.title': 'Who we help – Wells for Tanzania',
+    'help.hero.eyebrow': 'THE PEOPLE OF KISANGASA',
+    'help.hero.title.1': 'We collect',
+    'help.hero.title.2': 'for them',
+    'help.hero.title.3': '.',
+    'help.hero.intro': 'Behind every well are people. Here are some of them — the children, mothers and families from Kisangasa whose everyday lives will be changed by clean water.',
+    'help.people.eyebrow': 'The people',
+    'help.people.title': 'The people',
+    'help.person.1.name': 'John',
+    'help.person.1.age': '2 years old',
+    'help.person.1.text': 'John is still small — just two years old. Every day he discovers the world around him, laughs a lot and loves being carried by his mother. To grow up healthy, he needs something every child needs: clean water from the very beginning.',
+    'help.person.1.alt': 'John, 2 years old, from Kisangasa',
+    'help.person.2.name': 'Melody',
+    'help.person.2.age': '6 years old',
+    'help.person.2.text': 'Melody is the little one with the big laugh. She does not fully understand why water makes some days unsafe. A well would give her something that should be normal: a healthy start in life.',
+    'help.person.2.alt': 'Melody, 6 years old, from Kisangasa',
+    'help.person.3.name': 'Amani',
+    'help.person.3.age': '11 years old',
+    'help.person.3.text': 'Amani is the oldest among her siblings and takes on responsibility early. She walks the long way to the water hole every day — often twice. With a well in the village, she would get a piece of childhood back.',
+    'help.person.3.alt': 'Amani, 11 years old, from Kisangasa',
+    'help.person.4.name': 'Neema',
+    'help.person.4.age': '7 years old',
+    'help.person.4.text': 'Neema brings her own small cup everywhere she goes. Clean water is not something she can take for granted — it is a wish. One we can help fulfill together.',
+    'help.person.4.alt': 'Neema, 7 years old, from Kisangasa',
+    'help.person.5.name': 'Baraka',
+    'help.person.5.age': '10 years old',
+    'help.person.5.text': 'Baraka is curious, brave and always the first to show up when something new happens. He dreams of one day telling stories from his village — and of the children there growing up healthy.',
+    'help.person.5.alt': 'Baraka, 10 years old, from Kisangasa',
+    'help.person.6.name': 'Zawadi',
+    'help.person.6.age': '5 years old',
+    'help.person.6.text': 'Zawadi means “gift” — and that is exactly what she is to her family. For her to stay healthy and go to school, her village needs one thing above all: clean water close by.',
+    'help.person.6.alt': 'Zawadi, 5 years old, from Kisangasa',
+    'help.person.7.name': 'Joseph',
+    'help.person.7.age': '8 years old',
+    'help.person.7.text': 'Joseph is quiet, observant and looks after his younger siblings. He knows exactly how far the way to the water is — he walks it every day. A well would change his everyday life from the ground up.',
+    'help.person.7.alt': 'Joseph, 8 years old, from Kisangasa',
+    'help.daily.eyebrow': 'Everyday life in Kisangasa',
+    'help.daily.title': 'Everyday life in Kisangasa',
+    'help.daily.1.label': 'How water is transported here',
+    'help.daily.1.text': 'Canisters and buckets, often carried on the head or back — sometimes over several kilometers. What we get by turning on a tap is hard daily work here, especially for women and children.',
+    'help.daily.1.alt': 'Water being transported in canisters in Kisangasa',
+    'help.daily.2.label': 'Where the well is planned',
+    'help.daily.2.text': 'This place in Kisangasa is planned as the location for the well — central in the village and reachable for all families. Once funding is secured and local coordination is complete, construction will begin here.',
+    'help.daily.2.alt': 'Planned well location in Kisangasa',
+    'help.press.eyebrow': 'PRESS',
+    'help.press.title': 'The project in the media.',
+    'help.press.label': 'First newspaper article — front page',
+    'help.press.text': 'The local press reported on the project — an important step toward reaching more people for Kisangasa.',
+    'help.press.alt': 'Newspaper article about the well project',
+    'help.cta.title': 'You can change their everyday life.',
+    'help.cta.text': 'Every donation brings Kisangasa one step closer to clean water — and gives the people here a measure of dignity, health and future.',
+    'help.cta.button': 'Donate now →',
 
     'events.eyebrow': 'Events & actions',
     'events.title.1': 'How we raise',
@@ -377,21 +467,11 @@ const I18N = {
     'footer.receipt': 'Donation receipt',
     'footer.thanks': 'Asante sana — thank you.',
 
-    'gallery.0.label': 'Village',
-    'gallery.0.cap': 'Everyday life in Kisangasa',
-    'gallery.1.label': 'Children',
-    'gallery.1.cap': 'Child from Kisangasa',
-    'gallery.2.label': 'Visit',
-    'gallery.2.cap': 'Edith visiting the village',
-    'gallery.3.label': 'Encounter',
-    'gallery.3.cap': 'Edith visiting children in Kisangasa',
-    'gallery.4.label': 'Portrait',
-    'gallery.4.cap': 'Child from Kisangasa',
   }
 };
 
 /* ── State ── */
-let currentLang = 'de';
+let currentLang = window.location.pathname.includes('who-we-help') ? 'en' : 'de';
 
 /* ── i18n apply ── */
 function t(key) {
@@ -400,9 +480,23 @@ function t(key) {
 
 function applyI18n() {
   document.documentElement.lang = currentLang;
+  const title = document.querySelector('title[data-i18n]');
+  if (title) document.title = t(title.getAttribute('data-i18n'));
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     el.textContent = t(key);
+  });
+  document.querySelectorAll('[data-i18n-href]').forEach(el => {
+    const key = el.getAttribute('data-i18n-href');
+    el.setAttribute('href', t(key));
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+    const key = el.getAttribute('data-i18n-alt');
+    el.setAttribute('alt', t(key));
+  });
+  document.querySelectorAll('[data-i18n-lightbox-alt]').forEach(el => {
+    const key = el.getAttribute('data-i18n-lightbox-alt');
+    el.dataset.lightboxAlt = t(key);
   });
   document.querySelectorAll('[data-lang-de]').forEach(el => el.classList.toggle('on', currentLang === 'de'));
   document.querySelectorAll('[data-lang-en]').forEach(el => el.classList.toggle('on', currentLang === 'en'));
@@ -520,6 +614,10 @@ function initLangToggle() {
   const btn = document.getElementById('lang-toggle');
   if (!btn) return;
   btn.addEventListener('click', () => {
+    if (document.body.dataset.routeGroup === 'help') {
+      window.location.href = currentLang === 'de' ? '/who-we-help' : '/fuer-wen-wir-sammeln';
+      return;
+    }
     currentLang = currentLang === 'de' ? 'en' : 'de';
     applyI18n();
   });

@@ -1,2 +1,6 @@
 /impressum /impressum.html 200
 /datenschutz /datenschutz.html 200
+/fuer-wen-wir-sammeln /fuer-wen-wir-sammeln.html 200
+/who-we-help /who-we-help.html 200
+/galerie /fuer-wen-wir-sammeln 301
+/gallery /who-we-help 301

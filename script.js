@@ -13,7 +13,7 @@ const I18N = {
     'nav.story': 'Geschichte',
     'nav.gallery': 'Für wen wir sammeln',
     'nav.help': 'Für wen wir sammeln',
-    'nav.help.href': '/fuer-wen-wir-sammeln',
+    'nav.help.href': 'fuer-wen-wir-sammeln.html',
     'nav.events': 'Aktionen',
     'nav.updates': 'Updates',
     'nav.about': 'Über Edith',
@@ -243,7 +243,7 @@ const I18N = {
     'nav.story': 'Story',
     'nav.gallery': 'Who we help',
     'nav.help': 'Who we help',
-    'nav.help.href': '/who-we-help',
+    'nav.help.href': 'who-we-help.html',
     'nav.events': 'Events',
     'nav.updates': 'Updates',
     'nav.about': 'About Edith',
@@ -615,7 +615,7 @@ function initLangToggle() {
   if (!btn) return;
   btn.addEventListener('click', () => {
     if (document.body.dataset.routeGroup === 'help') {
-      window.location.href = currentLang === 'de' ? '/who-we-help' : '/fuer-wen-wir-sammeln';
+      window.location.href = currentLang === 'de' ? 'who-we-help.html' : 'fuer-wen-wir-sammeln.html';
       return;
     }
     currentLang = currentLang === 'de' ? 'en' : 'de';

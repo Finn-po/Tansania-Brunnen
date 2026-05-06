@@ -34,6 +34,7 @@ const I18N = {
     'hero.goal': 'Spendenziel',
     'hero.remaining_pre': 'Noch',
     'hero.remaining_post': 'bis zum ersten Brunnen',
+    'floating.donate': 'Jetzt spenden →',
 
     'story.eyebrow': 'Die Geschichte',
     'story.title.1': 'Wir können vielleicht nicht die ganze Welt verändern',
@@ -206,6 +207,7 @@ const I18N = {
     'hero.goal': 'goal',
     'hero.remaining_pre': 'Still',
     'hero.remaining_post': 'to the first well',
+    'floating.donate': 'Donate now →',
 
     'story.eyebrow': 'The story',
     'story.title.1': 'We may not be able to change the whole world',
@@ -379,12 +381,12 @@ function applyI18n() {
 
 /* ── Gallery ── */
 const GALLERY_ITEMS = [
-  { src: 'images/edith-mit-kindern.jpg', i: 4 },
-  { src: 'images/kinder-collage.jpg',    i: 2 },
-  { src: 'images/edith-selfie.jpg',      i: 5 },
-  { src: 'images/edith-liebe.jpg',       i: 0 },
-  { src: 'images/wasserkanister-kind.jpg', i: 3 },
-  { src: 'images/kind-im-dorf.jpg',      i: 1 },
+  { src: 'images/image-9.jpg', i: 1 },
+  { src: 'images/image-16.jpg', i: 3 },
+  { src: 'images/image-10.jpg', i: 2 },
+  { src: 'images/image-6.jpg', i: 0 },
+  { src: 'images/image-7.jpg', i: 4 },
+  { src: 'images/image-8.jpg', i: 5 },
 ];
 
 function renderGallery() {
@@ -409,11 +411,11 @@ function renderGallery() {
 
 /* ── Build Steps ── */
 const BUILD_STEPS = [
-  { img: 'images/brunnen-bau-1.jpg', key: 1 },
-  { img: 'images/brunnen-bau-2.jpg', key: 2 },
-  { img: 'images/brunnen-bau-3.jpg', key: 3 },
-  { img: 'images/brunnen-bau-4.jpg', key: 4 },
-  { img: 'images/brunnen-bau-5.jpg', key: 5 },
+  { img: 'images/image-1.jpg', key: 1 },
+  { img: 'images/image-2.jpg', key: 2 },
+  { img: 'images/image-3.jpg', key: 3 },
+  { img: 'images/image-4.jpg', key: 4 },
+  { img: 'images/image-5.jpg', key: 5 },
 ];
 
 function renderBuildSteps() {
@@ -527,6 +529,23 @@ function initLangToggle() {
   });
 }
 
+/* ── Floating donate button ── */
+function initFloatingDonate() {
+  const btn = document.getElementById('floating-donate');
+  const footer = document.getElementById('kontakt');
+  if (!btn) return;
+
+  const update = () => {
+    const pastHero = window.scrollY > 600;
+    const footerVisible = footer && footer.getBoundingClientRect().top < window.innerHeight + 24;
+    btn.classList.toggle('show', pastHero && !footerVisible);
+  };
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+}
+
 /* ── Boot ── */
 document.addEventListener('DOMContentLoaded', () => {
   renderFAQ();
@@ -536,4 +555,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initLangToggle();
   initDonateForm();
   initProgressBar();
+  initFloatingDonate();
 });

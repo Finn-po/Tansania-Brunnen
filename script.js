@@ -3,7 +3,6 @@
    - i18n (DE/EN), Sprachumschalter
    - Spendenformular
    - FAQ-Akkordeon
-   - Galerie (dynamisch)
    - Projektplan-Timeline
    - Spendenbalken-Animation
    ───────────────────────────────────────────── */
@@ -78,7 +77,7 @@ const I18N = {
     'event.2.date': 'Bald',
     'event.2.title': 'Nachttrödel — Stand mieten & helfen',
     'event.2.text': 'Bald findet ein Nachttrödelmarkt statt — und du kannst dabei sein. Für 30 € kannst du dir einen eigenen Stand mieten. Die Standgebühr fließt zu 100 % direkt an die Kinder in Kisangasa. Verkauf, was du nicht mehr brauchst — und hilf dabei, einen Brunnen zu bauen.',
-    'event.2.where': 'Mortimer Englisch Club, Hattingen',
+    'event.2.where': 'Rathausplatz Hattingen',
     'event.2.poster': 'Symbolbild',
     'event.3.tag': 'Vor Ort',
     'event.3.date': 'Geplant 2026',
@@ -265,7 +264,7 @@ const I18N = {
     'event.2.date': 'Soon',
     'event.2.title': 'Night flea market — rent a stand & help',
     'event.2.text': 'A night flea market is coming soon — and you can be part of it. For 30 €, you can rent your own stand. The stand fee goes 100% directly to the children in Kisangasa. Sell what you no longer need — and help build a well.',
-    'event.2.where': 'Mortimer Englisch Club, Hattingen',
+    'event.2.where': 'Rathausplatz Hattingen',
     'event.2.poster': 'Reference image',
     'event.3.tag': 'On-site',
     'event.3.date': 'Planned 2026',
@@ -403,38 +402,7 @@ function applyI18n() {
   document.querySelectorAll('[data-lang-en]').forEach(el => el.classList.toggle('on', currentLang === 'en'));
   const upcoming = document.querySelector('[data-i18n-upcoming]');
   if (upcoming) upcoming.textContent = t('events.upcoming');
-  renderGallery();
   renderBuildSteps();
-}
-
-/* ── Gallery ── */
-const GALLERY_ITEMS = [
-  { src: 'images/image-10.jpg', i: 0, position: 'center top', ratio: 'portrait' },
-  { src: 'images/image-18.jpeg', i: 1, position: 'center top', ratio: 'portrait' },
-  { src: 'images/image-9.jpg', i: 2, position: 'center top', ratio: 'portrait' },
-  { src: 'images/image-27.jpeg', i: 3, position: 'center top', ratio: 'portrait' },
-  { src: 'images/image-21.jpeg', i: 4, position: 'center top', ratio: 'portrait' },
-];
-
-function renderGallery() {
-  const grid = document.getElementById('gallery-grid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  GALLERY_ITEMS.forEach(({ src, i, position, ratio }, idx) => {
-    const cap = t(`gallery.${i}.cap`);
-    const label = t(`gallery.${i}.label`);
-    const fig = document.createElement('figure');
-    fig.className = `gallery-tile gallery-tile-${idx}`;
-    if (ratio) fig.dataset.ratio = ratio;
-    fig.innerHTML = `
-      <img src="${src}" alt="${cap}" class="img-fit" loading="lazy" style="object-position: ${position || 'center top'}"/>
-      <figcaption>
-        <span class="gallery-label">${label}</span>
-        <span class="gallery-cap">${cap}</span>
-      </figcaption>
-    `;
-    grid.appendChild(fig);
-  });
 }
 
 /* ── Build Steps ── */
@@ -621,7 +589,6 @@ function initImageLightbox() {
 /* ── Boot ── */
 document.addEventListener('DOMContentLoaded', () => {
   renderFAQ();
-  renderGallery();
   renderBuildSteps();
   applyI18n();
   initLangToggle();

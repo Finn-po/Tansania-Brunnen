@@ -4,6 +4,7 @@
    - Spendenformular & Impact-Berechnung
    - FAQ-Akkordeon
    - Galerie (dynamisch)
+   - Brunnenbau-Timeline
    - Spendenbalken-Animation
    ───────────────────────────────────────────── */
 
@@ -18,6 +19,7 @@ const I18N = {
     'nav.faq': 'FAQ',
     'nav.contact': 'Kontakt',
     'nav.donate': 'Spenden',
+    'nav.build': 'Der Bau',
 
     'hero.location': 'Kisangasa · Tansania',
     'hero.title.1': 'Ein Brunnen.',
@@ -84,6 +86,28 @@ const I18N = {
     'event.3.title': 'Der echte Brunnen',
     'event.3.text': 'Wenn das Spendenziel erreicht ist: Bau, Inbetriebnahme und Übergabe an die Dorfgemeinschaft in Kisangasa. Dokumentiert auf dieser Seite.',
     'event.3.where': 'Kisangasa',
+
+    'build.eyebrow': 'Es geht los',
+    'build.title.1': 'Der Brunnen',
+    'build.title.2': 'entsteht.',
+    'build.lede': 'Dank eurer Spenden hat der Bau begonnen. Hier seht ihr, wie aus Steinen, Erde und Hoffnung Wirklichkeit wird — Schritt für Schritt, direkt in Kisangasa.',
+    'build.step.1.label': 'Schritt 1',
+    'build.step.1.title': 'Die Fundamente',
+    'build.step.1.text': 'Die ersten Steine werden gesetzt. Der Brunnenschacht beginnt Form anzunehmen — Stein für Stein, mit den Händen der Menschen vor Ort.',
+    'build.step.2.label': 'Schritt 2',
+    'build.step.2.title': 'Der Wassertank kommt',
+    'build.step.2.text': 'Ein großer Kiboko-Wassertank wird angeliefert — er wird das gepumpte Wasser speichern, damit das Dorf jederzeit Zugang hat.',
+    'build.step.3.label': 'Schritt 3',
+    'build.step.3.title': 'Mauerwerk & Armierung',
+    'build.step.3.text': 'Die Brunnenmauer wächst. Stahlgeflecht verstärkt die Konstruktion, damit der Brunnen Jahrzehnte hält. Echte Handarbeit, echter Stolz.',
+    'build.step.4.label': 'Schritt 4',
+    'build.step.4.title': 'Der Deckel wird gegossen',
+    'build.step.4.text': 'Beton wird in die Form gegossen — der Abdeckstein entsteht. Er schützt das Wasser vor Verunreinigung und macht den Brunnen fertig.',
+    'build.step.5.label': 'Schritt 5',
+    'build.step.5.title': 'Die Pumpe steht',
+    'build.step.5.text': 'Das Herzstück ist eingebaut: die Pumpe. Mit dem Stahlgerüst für die Solaranlage dahinter wird bald sauberes Wasser fließen.',
+    'build.quote': '„Ich hab geweint, als ich die Bilder gesehen habe. Es wird wirklich wahr."',
+    'build.quote.sig': '— Edith',
 
     'updates.eyebrow': 'Neuigkeiten',
     'updates.title.1': 'So weit',
@@ -167,6 +191,7 @@ const I18N = {
     'nav.faq': 'FAQ',
     'nav.contact': 'Contact',
     'nav.donate': 'Donate',
+    'nav.build': 'The Build',
 
     'hero.location': 'Kisangasa · Tanzania',
     'hero.title.1': 'One well.',
@@ -233,6 +258,28 @@ const I18N = {
     'event.3.title': 'The real well',
     'event.3.text': 'Once the goal is reached: construction, commissioning and handover to the village community in Kisangasa.',
     'event.3.where': 'Kisangasa',
+
+    'build.eyebrow': "It's happening",
+    'build.title.1': 'The well is being',
+    'build.title.2': 'built.',
+    'build.lede': "Thanks to your donations, construction has begun. Here you can see how stones, earth and hope become reality — step by step, right in Kisangasa.",
+    'build.step.1.label': 'Step 1',
+    'build.step.1.title': 'The foundations',
+    'build.step.1.text': 'The first stones are being laid. The well shaft begins to take shape — stone by stone, with the hands of the people on site.',
+    'build.step.2.label': 'Step 2',
+    'build.step.2.title': 'The water tank arrives',
+    'build.step.2.text': 'A large Kiboko water tank is delivered — it will store the pumped water so the village has access at any time.',
+    'build.step.3.label': 'Step 3',
+    'build.step.3.title': 'Masonry & reinforcement',
+    'build.step.3.text': 'The well wall grows. Steel mesh reinforces the construction so the well lasts for decades. Real craftsmanship, real pride.',
+    'build.step.4.label': 'Step 4',
+    'build.step.4.title': 'The cover is cast',
+    'build.step.4.text': 'Concrete is poured into the mold — the cover stone takes shape. It protects the water from contamination and completes the well.',
+    'build.step.5.label': 'Step 5',
+    'build.step.5.title': 'The pump is in',
+    'build.step.5.text': 'The heart of it all is installed: the pump. With the solar panel frame behind it, clean water will soon flow.',
+    'build.quote': '"I cried when I saw the pictures. It\'s actually becoming real."',
+    'build.quote.sig': '— Edith',
 
     'updates.eyebrow': 'News',
     'updates.title.1': 'How',
@@ -322,35 +369,33 @@ function applyI18n() {
     const key = el.getAttribute('data-i18n');
     el.textContent = t(key);
   });
-  // Sprachumschalter
   document.querySelectorAll('[data-lang-de]').forEach(el => el.classList.toggle('on', currentLang === 'de'));
   document.querySelectorAll('[data-lang-en]').forEach(el => el.classList.toggle('on', currentLang === 'en'));
-  // Geplant-Badge
   const upcoming = document.querySelector('[data-i18n-upcoming]');
   if (upcoming) upcoming.textContent = t('events.upcoming');
-  // Galerie neu rendern (Captions)
   renderGallery();
+  renderBuildSteps();
 }
 
 /* ── Gallery ── */
 const GALLERY_ITEMS = [
-  'images/edith-liebe.jpg',
-  'images/kind-im-dorf.jpg',
-  'images/kinder-collage.jpg',
-  'images/wasserkanister-kind.jpg',
-  'images/edith-mit-kindern.jpg',
-  'images/edith-selfie.jpg',
+  { src: 'images/edith-mit-kindern.jpg', i: 4 },
+  { src: 'images/kinder-collage.jpg',    i: 2 },
+  { src: 'images/edith-selfie.jpg',      i: 5 },
+  { src: 'images/edith-liebe.jpg',       i: 0 },
+  { src: 'images/wasserkanister-kind.jpg', i: 3 },
+  { src: 'images/kind-im-dorf.jpg',      i: 1 },
 ];
 
 function renderGallery() {
   const grid = document.getElementById('gallery-grid');
   if (!grid) return;
   grid.innerHTML = '';
-  GALLERY_ITEMS.forEach((src, i) => {
+  GALLERY_ITEMS.forEach(({ src, i }, idx) => {
     const cap = t(`gallery.${i}.cap`);
     const label = t(`gallery.${i}.label`);
     const fig = document.createElement('figure');
-    fig.className = `gallery-tile gallery-tile-${i}`;
+    fig.className = `gallery-tile gallery-tile-${idx}`;
     fig.innerHTML = `
       <img src="${src}" alt="${cap}" class="img-fit"/>
       <figcaption>
@@ -359,6 +404,36 @@ function renderGallery() {
       </figcaption>
     `;
     grid.appendChild(fig);
+  });
+}
+
+/* ── Build Steps ── */
+const BUILD_STEPS = [
+  { img: 'images/brunnen-bau-1.jpg', key: 1 },
+  { img: 'images/brunnen-bau-2.jpg', key: 2 },
+  { img: 'images/brunnen-bau-3.jpg', key: 3 },
+  { img: 'images/brunnen-bau-4.jpg', key: 4 },
+  { img: 'images/brunnen-bau-5.jpg', key: 5 },
+];
+
+function renderBuildSteps() {
+  const container = document.getElementById('build-steps');
+  if (!container) return;
+  container.innerHTML = '';
+  BUILD_STEPS.forEach(({ img, key }, idx) => {
+    const step = document.createElement('div');
+    step.className = `build-step ${idx % 2 === 0 ? 'build-step-left' : 'build-step-right'}`;
+    step.innerHTML = `
+      <div class="build-step-img">
+        <img src="${img}" alt="${t(`build.step.${key}.title`)}" class="img-fit"/>
+      </div>
+      <div class="build-step-content">
+        <div class="build-step-label">${t(`build.step.${key}.label`)}</div>
+        <h3 class="build-step-title">${t(`build.step.${key}.title`)}</h3>
+        <p class="build-step-text muted">${t(`build.step.${key}.text`)}</p>
+      </div>
+    `;
+    container.appendChild(step);
   });
 }
 
@@ -456,6 +531,7 @@ function initLangToggle() {
 document.addEventListener('DOMContentLoaded', () => {
   renderFAQ();
   renderGallery();
+  renderBuildSteps();
   applyI18n();
   initLangToggle();
   initDonateForm();

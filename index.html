@@ -11,6 +11,63 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
 
   <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ── BRUNNENBAU SECTION ── */
+    .build-section { padding: 96px 0; background: var(--sand, #faf7f2); }
+    .build-head { max-width: 680px; margin: 0 auto 72px; }
+    .build-steps { display: flex; flex-direction: column; gap: 64px; margin-bottom: 72px; }
+
+    .build-step {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .build-step-right { direction: rtl; }
+    .build-step-right > * { direction: ltr; }
+
+    .build-step-img {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .build-step-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .build-step-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--terracotta, #c0622f);
+      margin-bottom: 8px;
+    }
+    .build-step-title {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .build-step-text { font-size: 16px; line-height: 1.7; }
+
+    .build-quote-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 48px 32px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    .build-quote { margin: 0; }
+    .build-quote .hand { font-size: clamp(20px, 2.8vw, 26px); display: block; margin-bottom: 16px; color: var(--ink, #1a1a2e); }
+    .build-quote cite { font-style: normal; font-size: 14px; opacity: .6; }
+
+    @media (max-width: 768px) {
+      .build-step, .build-step-right { grid-template-columns: 1fr; direction: ltr; }
+      .build-step-right .build-step-img { order: -1; }
+    }
+  </style>
 </head>
 <body>
 
@@ -27,6 +84,7 @@
       <nav class="nav-links">
         <a href="#geschichte" data-i18n="nav.story">Geschichte</a>
         <a href="#events" data-i18n="nav.events">Aktionen</a>
+        <a href="#brunnenbau" data-i18n="nav.build">Der Bau</a>
         <a href="#galerie" data-i18n="nav.gallery">Galerie</a>
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
         <button class="lang-toggle" id="lang-toggle" aria-label="Sprache wechseln">
@@ -261,6 +319,29 @@
       <div class="center events-foot">
         <p class="hand" data-i18n="events.idea">Du hast eine Idee für eine Aktion?</p>
         <a href="#kontakt" class="btn btn-blue" data-i18n="events.contact">Schreib uns →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BRUNNENBAU ── -->
+  <section id="brunnenbau" class="build-section" data-screen-label="Build">
+    <div class="wrap">
+      <div class="center build-head">
+        <div class="eyebrow" data-i18n="build.eyebrow">Es geht los</div>
+        <h2>
+          <span data-i18n="build.title.1">Der Brunnen</span>
+          <span class="hand-underline" data-i18n="build.title.2">entsteht.</span>
+        </h2>
+        <p class="lede" data-i18n="build.lede">Dank eurer Spenden hat der Bau begonnen. Hier seht ihr, wie aus Steinen, Erde und Hoffnung Wirklichkeit wird — Schritt für Schritt, direkt in Kisangasa.</p>
+      </div>
+
+      <div class="build-steps" id="build-steps"></div>
+
+      <div class="build-quote-wrap">
+        <blockquote class="build-quote">
+          <span class="hand" data-i18n="build.quote">„Ich hab geweint, als ich die Bilder gesehen habe. Es wird wirklich wahr."</span>
+          <cite data-i18n="build.quote.sig">— Edith</cite>
+        </blockquote>
       </div>
     </div>
   </section>

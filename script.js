@@ -35,7 +35,7 @@ const I18N = {
     'hero.goal': 'Spendenziel',
     'hero.remaining_pre': 'Noch',
     'hero.remaining_post': 'bis zum ersten Brunnen',
-    'hero.updated': 'Stand: Datum bitte aktualisieren',
+    'hero.updated': 'Stand: 12.05.2026',
     'floating.donate': 'Jetzt spenden →',
 
     'story.eyebrow': 'Die Geschichte',
@@ -265,7 +265,7 @@ const I18N = {
     'hero.goal': 'goal',
     'hero.remaining_pre': 'Still',
     'hero.remaining_post': 'to the first well',
-    'hero.updated': 'Status: date to be updated',
+    'hero.updated': 'As of: 12 May 2026',
     'floating.donate': 'Donate now →',
 
     'story.eyebrow': 'The story',

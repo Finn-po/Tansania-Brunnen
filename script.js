@@ -108,6 +108,7 @@ const I18N = {
     'help.cta.title': 'Du kannst ihren Alltag verändern.',
     'help.cta.text': 'Jede Spende bringt Kisangasa einen Schritt näher zu sauberem Wasser — und den Menschen hier ein Stück Würde, Gesundheit und Zukunft.',
     'help.cta.button': 'Spenden',
+    'help.cta.note': 'Gespendet wird über <a href="https://4fund.com/de/yhn7nt?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARkhwRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadxLTn0RMiM_cF4spRfqvKI5ZluJ6rOpw2im27KDv0Z7N9_gJL4AGkHdq9Aow_aem_ghL43DMcSc4AULmgLW4beg" target="_blank" rel="noopener noreferrer">4fund.com</a>',
 
     'events.eyebrow': 'Aktionen & Events',
     'events.title.1': 'So sammeln wir',
@@ -200,6 +201,7 @@ const I18N = {
     'cta.impact.pre': 'Jede Spende bringt das Projekt dem Ziel näher.',
     'cta.submit': 'Spenden',
     'cta.or': 'oder',
+    'cta.note': 'Gespendet wird über <a href="https://4fund.com/de/yhn7nt?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARkhwRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadxLTn0RMiM_cF4spRfqvKI5ZluJ6rOpw2im27KDv0Z7N9_gJL4AGkHdq9Aow_aem_ghL43DMcSc4AULmgLW4beg" target="_blank" rel="noopener noreferrer">4fund.com</a>',
 
     'about.eyebrow': 'WER DAHINTER STEHT',
     'about.title.1': 'Edith',
@@ -331,6 +333,7 @@ const I18N = {
     'help.cta.title': 'You can change their everyday life.',
     'help.cta.text': 'Every donation brings Kisangasa one step closer to clean water — and gives the people here a measure of dignity, health and future.',
     'help.cta.button': 'Donate',
+    'help.cta.note': 'All donations are handled via <a href="https://4fund.com/de/yhn7nt?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARkhwRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadxLTn0RMiM_cF4spRfqvKI5ZluJ6rOpw2im27KDv0Z7N9_gJL4AGkHdq9Aow_aem_ghL43DMcSc4AULmgLW4beg" target="_blank" rel="noopener noreferrer">4fund.com</a>',
 
     'events.eyebrow': 'Events & actions',
     'events.title.1': 'How we raise',
@@ -423,6 +426,7 @@ const I18N = {
     'cta.impact.pre': 'Every donation brings the project closer to its goal.',
     'cta.submit': 'Donate',
     'cta.or': 'or',
+    'cta.note': 'All donations are handled via <a href="https://4fund.com/de/yhn7nt?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARkhwRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadxLTn0RMiM_cF4spRfqvKI5ZluJ6rOpw2im27KDv0Z7N9_gJL4AGkHdq9Aow_aem_ghL43DMcSc4AULmgLW4beg" target="_blank" rel="noopener noreferrer">4fund.com</a>',
 
     'about.eyebrow': 'WHO STANDS BEHIND IT',
     'about.title.1': 'Edith',
@@ -476,6 +480,10 @@ function applyI18n() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     el.textContent = t(key);
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    el.innerHTML = t(key);
   });
   document.querySelectorAll('[data-i18n-href]').forEach(el => {
     const key = el.getAttribute('data-i18n-href');
@@ -733,6 +741,7 @@ function initMobileNav() {
 
 /* ── Boot ── */
 document.addEventListener('DOMContentLoaded', () => {
+  if (!window.location.hash) window.scrollTo(0, 0);
   renderFAQ();
   renderBuildSteps();
   applyI18n();

@@ -135,9 +135,7 @@ section {
   transition: color .2s;
 }
 .nav-links a:hover { color: var(--terracotta); }
-@media (max-width: 760px) {
-  .nav-links a:not(.btn) { display: none; }
-}
+/* Mobile-Nav-Verhalten wird unten im großen Mobile-Block definiert */
 
 .lang-toggle {
   background: transparent;
@@ -281,6 +279,7 @@ section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 26px;
+  align-items: start;
 }
 .daily-card img {
   display: block;
@@ -288,6 +287,15 @@ section {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: center top;
+  background: var(--paper-2);
+}
+/* Portrait-Bild des geplanten Brunnenstandorts: Container an Bild anpassen,
+   damit nichts weggeschnitten wird */
+.daily-card.daily-card-portrait img,
+.daily-card img[src*="image-29"] {
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center;
 }
 .daily-card-body,
 .press-card-body {
@@ -1529,7 +1537,306 @@ footer a:hover { opacity: 1; }
   h2 { font-size: 30px; }
   .donation-stat-value { font-size: 22px; }
   .donate-form { padding: 22px; }
-  .nav-inner { padding: 14px 18px; }
-  .brand span { display: none; }
-  .lang-toggle { padding: 5px 10px; font-size: 11px; }
+}
+
+/* ─────────────────────────────────────────────
+   Press-Link-Card  (Ruhrkanal-Artikel)
+   ───────────────────────────────────────────── */
+.press-link-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: start;
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--bone);
+  border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  border-radius: 16px;
+  padding: 32px 36px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-soft);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.press-link-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, color-mix(in oklab, var(--terracotta) 8%, transparent), transparent 55%);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
+.press-link-card:hover,
+.press-link-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+  border-color: color-mix(in oklab, var(--terracotta) 35%, transparent);
+  outline: none;
+}
+.press-link-card:hover::before,
+.press-link-card:focus-visible::before { opacity: 1; }
+.press-link-card-marker {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: color-mix(in oklab, var(--terracotta) 12%, white);
+  color: var(--terracotta-deep);
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.press-link-card-body {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+.press-link-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--terracotta);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.press-link-dot { opacity: 0.55; }
+.press-link-date { color: var(--ink-soft); letter-spacing: 0.02em; }
+.press-link-card h3 {
+  margin: 0 0 12px;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.25;
+}
+.press-link-card p {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.press-link-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--terracotta-deep);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--terracotta) 40%, transparent);
+  text-underline-offset: 4px;
+  transition: gap .2s ease, text-decoration-color .2s ease;
+}
+.press-link-card:hover .press-link-cta,
+.press-link-card:focus-visible .press-link-cta {
+  gap: 12px;
+  text-decoration-color: var(--terracotta);
+}
+
+/* ─────────────────────────────────────────────
+   Burger-Menü (Mobile-Navigation)
+   ───────────────────────────────────────────── */
+.nav-burger {
+  display: none;
+  background: transparent;
+  border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex: 0 0 auto;
+  transition: background .2s ease;
+}
+.nav-burger:hover { background: color-mix(in oklab, var(--ink) 5%, transparent); }
+.nav-burger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .2s ease;
+  transform-origin: center;
+}
+.nav-burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Sicherstellen, dass nav-donate-btn (im Header) immer eine ordentliche Größe hat */
+.nav-donate-btn {
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+/* ─────────────────────────────────────────────
+   Mobile-Layout (≤ 860px)
+   ───────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .nav-burger { display: inline-flex; }
+
+  /* Nav-Links als Off-Canvas-Drawer */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(86vw, 360px);
+    height: 100vh;
+    height: 100dvh;
+    background: var(--paper);
+    border-left: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
+    box-shadow: -10px 0 40px rgba(26,41,66,.15);
+    padding: 88px 28px 32px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 4px;
+    overflow-y: auto;
+    transform: translateX(105%);
+    transition: transform .32s cubic-bezier(.4,.0,.2,1);
+    z-index: 60;
+  }
+  .nav-links.open { transform: translateX(0); }
+
+  .nav-links a:not(.btn) {
+    display: block;
+    padding: 14px 6px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1px solid color-mix(in oklab, var(--ink) 6%, transparent);
+  }
+  .nav-links a:not(.btn):hover { color: var(--terracotta); }
+
+  .nav-links .lang-toggle {
+    align-self: flex-start;
+    margin-top: 18px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .nav-links .nav-donate-btn {
+    margin-top: 18px;
+    justify-content: center;
+    padding: 14px 22px;
+    font-size: 15px;
+  }
+
+  /* Backdrop hinter dem Drawer */
+  body.nav-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(26,41,66,.45);
+    z-index: 55;
+    pointer-events: none;
+    animation: navFade .25s ease both;
+  }
+  body.nav-open {
+    overflow: hidden;
+  }
+  @keyframes navFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Weitere Mobile-Anpassungen
+   ───────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .nav-inner { padding: 14px 18px; gap: 12px; }
+  .brand { font-size: 17px; }
+
+  /* Hero-Bilder etwas kompakter */
+  .hero-images { min-height: 260px; }
+
+  /* CTA-Buttons in Hero/CTA-Bereichen sollen auf Mobile voll sichtbar sein */
+  .hero-cta-row .btn,
+  .help-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-cta-row { gap: 10px; }
+}
+
+@media (max-width: 640px) {
+  section { padding: 56px 0; }
+  .wrap, .wrap-narrow { padding: 0 18px; }
+
+  /* Brand: nur das Logo, Text dezenter */
+  .brand span {
+    font-size: 15px;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Press-Link-Card auf Mobile gestapelt */
+  .press-link-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 22px;
+  }
+  .press-link-card-marker {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+  }
+  .press-link-card-marker svg { width: 24px; height: 24px; }
+  .press-link-card h3 { font-size: 19px; }
+  .press-link-card p { font-size: 15px; }
+
+  /* People-Grid: kleinere Karten-Bilder */
+  .person-card img {
+    aspect-ratio: 4 / 4.2;
+  }
+
+  /* Daily-Card auf Mobile: Brunnen-Bild begrenzen, sonst zu hoch */
+  .daily-card.daily-card-portrait img,
+  .daily-card img[src*="image-29"] {
+    max-height: 70vh;
+    aspect-ratio: auto;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Help-Hero kompakter */
+  .help-hero h1 { font-size: 38px; }
+  .help-hero .lede { font-size: 17px; }
+}
+
+@media (max-width: 420px) {
+  h1 { font-size: 38px; }
+  h2 { font-size: 26px; }
+  .hero-text .lede { font-size: 17px; }
+  .donation-card { padding: 20px; }
+  .donation-stats { gap: 8px; }
+  .donation-stat-value { font-size: 19px; }
+  .donation-stat-label { font-size: 11px; }
+  .brand { font-size: 15px; gap: 10px; }
+  .brand span {
+    font-size: 14px;
+    max-width: 160px;
+  }
+  .nav-burger { width: 40px; height: 40px; }
 }

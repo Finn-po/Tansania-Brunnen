@@ -104,9 +104,11 @@ const I18N = {
     'help.daily.2.alt': 'Geplanter Brunnenstandort in Kisangasa',
     'help.press.eyebrow': 'PRESSE',
     'help.press.title': 'Das Projekt in den Medien.',
-    'help.press.label': 'Erster Zeitungsartikel — Titelblatt',
-    'help.press.text': 'Die lokale Presse hat über das Projekt berichtet — ein wichtiger Schritt, um noch mehr Menschen für Kisangasa zu gewinnen.',
-    'help.press.alt': 'Zeitungsartikel über das Brunnenprojekt',
+    'help.press.source': 'RuhrkanalNews',
+    'help.press.date': '1. März 2026',
+    'help.press.headline': '„Hattingerin Edith Cielma sammelt Spenden für Trinkwasserbrunnen in Tansania"',
+    'help.press.teaser': 'Die lokale Presse hat über das Projekt berichtet — ein wichtiger Schritt, um noch mehr Menschen für Kisangasa zu gewinnen. Hans Georg Höffken porträtiert auf RuhrkanalNews, wie aus einer Reise nach Tansania die private Hilfsinitiative wurde.',
+    'help.press.cta': 'Ganzen Artikel lesen',
     'help.cta.title': 'Du kannst ihren Alltag verändern.',
     'help.cta.text': 'Jede Spende bringt Kisangasa einen Schritt näher zu sauberem Wasser — und den Menschen hier ein Stück Würde, Gesundheit und Zukunft.',
     'help.cta.button': 'Jetzt spenden →',
@@ -334,9 +336,11 @@ const I18N = {
     'help.daily.2.alt': 'Planned well location in Kisangasa',
     'help.press.eyebrow': 'PRESS',
     'help.press.title': 'The project in the media.',
-    'help.press.label': 'First newspaper article — front page',
-    'help.press.text': 'The local press reported on the project — an important step toward reaching more people for Kisangasa.',
-    'help.press.alt': 'Newspaper article about the well project',
+    'help.press.source': 'RuhrkanalNews',
+    'help.press.date': 'March 1, 2026',
+    'help.press.headline': '"Hattingen resident Edith Cielma collects donations for a drinking water well in Tanzania"',
+    'help.press.teaser': 'The local press reported on the project — an important step toward reaching more people for Kisangasa. On RuhrkanalNews, Hans Georg Höffken describes how a trip to Tanzania became this private aid initiative.',
+    'help.press.cta': 'Read the full article',
     'help.cta.title': 'You can change their everyday life.',
     'help.cta.text': 'Every donation brings Kisangasa one step closer to clean water — and gives the people here a measure of dignity, health and future.',
     'help.cta.button': 'Donate now →',
@@ -695,6 +699,56 @@ function initImageLightbox() {
   });
 }
 
+/* ── Mobile Burger Navigation ── */
+function initMobileNav() {
+  const burger = document.getElementById('nav-burger');
+  const links  = document.getElementById('nav-links');
+  if (!burger || !links) return;
+
+  const close = () => {
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Menü öffnen');
+    links.classList.remove('open');
+    document.body.classList.remove('nav-open');
+  };
+  const open = () => {
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Menü schließen');
+    links.classList.add('open');
+    document.body.classList.add('nav-open');
+  };
+  const toggle = () => {
+    if (links.classList.contains('open')) close();
+    else open();
+  };
+
+  burger.addEventListener('click', toggle);
+
+  // Schließen, wenn ein Link angeklickt wird
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.matchMedia('(max-width: 860px)').matches) close();
+    });
+  });
+
+  // Schließen beim Klick auf den Backdrop (außerhalb des Drawers)
+  document.addEventListener('click', (e) => {
+    if (!links.classList.contains('open')) return;
+    if (links.contains(e.target) || burger.contains(e.target)) return;
+    close();
+  });
+
+  // Schließen mit Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && links.classList.contains('open')) close();
+  });
+
+  // Bei Resize zurück auf Desktop: aufräumen
+  window.addEventListener('resize', () => {
+    if (!window.matchMedia('(max-width: 860px)').matches) close();
+  });
+}
+
 /* ── Boot ── */
 document.addEventListener('DOMContentLoaded', () => {
   renderFAQ();
@@ -705,4 +759,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initProgressBar();
   initFloatingDonate();
   initImageLightbox();
+  initMobileNav();
 });

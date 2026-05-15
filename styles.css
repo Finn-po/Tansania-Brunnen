@@ -1765,22 +1765,6 @@ footer a:hover { opacity: 1; }
     font-size: 15px;
   }
 
-  /* Backdrop hinter dem Drawer */
-  body.nav-open::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: rgba(245, 239, 228, 0.35);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    z-index: 55;
-    pointer-events: none;
-    animation: navFade .25s ease both;
-  }
-  @keyframes navFade {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
 }
 
 /* ─────────────────────────────────────────────

@@ -35,7 +35,7 @@ const I18N = {
     'hero.goal': 'Spendenziel',
     'hero.remaining_pre': 'Noch',
     'hero.remaining_post': 'bis zum ersten Brunnen',
-    'hero.updated': 'Stand: 12.05.2026',
+    'hero.updated': 'Stand: 15.05.2026',
     'floating.donate': 'Spenden',
 
     'story.eyebrow': 'Die Geschichte',
@@ -260,7 +260,7 @@ const I18N = {
     'hero.goal': 'goal',
     'hero.remaining_pre': 'Still',
     'hero.remaining_post': 'to the first well',
-    'hero.updated': 'As of: 12 May 2026',
+    'hero.updated': 'As of: May 15, 2026',
     'floating.donate': 'Donate',
 
     'story.eyebrow': 'The story',
@@ -589,7 +589,7 @@ function initDonateForm() {
 /* ── Hero progress bar ── */
 function initProgressBar() {
   const goal = 11000;
-  const raised = 10720;
+  const raised = 10830;
   const remaining = goal - raised;
   const pct = Math.round((raised / goal) * 100);
   const fmt = n => n.toLocaleString('de-DE');

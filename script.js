@@ -13,7 +13,7 @@ const I18N = {
     'nav.story': 'Geschichte',
     'nav.gallery': 'Für wen wir sammeln',
     'nav.help': 'Für wen wir sammeln',
-    'nav.help.href': 'fuer-wen-wir-sammeln.html',
+    'nav.help.href': '/fuer-wen-wir-sammeln/',
     'nav.events': 'Aktionen',
     'nav.updates': 'Updates',
     'nav.about': 'Über Edith',
@@ -243,7 +243,7 @@ const I18N = {
     'nav.story': 'Story',
     'nav.gallery': 'Who we help',
     'nav.help': 'Who we help',
-    'nav.help.href': 'who-we-help.html',
+    'nav.help.href': '/who-we-help/',
     'nav.events': 'Events',
     'nav.updates': 'Updates',
     'nav.about': 'About Edith',
@@ -478,6 +478,11 @@ function t(key) {
   return I18N[currentLang]?.[key] ?? key;
 }
 
+function sitePath(route) {
+  if (/^(https?:|mailto:|#)/.test(route)) return route;
+  return route.startsWith('/') ? route : `/${route}`;
+}
+
 function applyI18n() {
   document.documentElement.lang = currentLang;
   const title = document.querySelector('title[data-i18n]');
@@ -488,7 +493,7 @@ function applyI18n() {
   });
   document.querySelectorAll('[data-i18n-href]').forEach(el => {
     const key = el.getAttribute('data-i18n-href');
-    el.setAttribute('href', t(key));
+    el.setAttribute('href', sitePath(t(key)));
   });
   document.querySelectorAll('[data-i18n-alt]').forEach(el => {
     const key = el.getAttribute('data-i18n-alt');
@@ -615,7 +620,7 @@ function initLangToggle() {
   if (!btn) return;
   btn.addEventListener('click', () => {
     if (document.body.dataset.routeGroup === 'help') {
-      window.location.href = currentLang === 'de' ? 'who-we-help.html' : 'fuer-wen-wir-sammeln.html';
+      window.location.href = currentLang === 'de' ? '/who-we-help/' : '/fuer-wen-wir-sammeln/';
       return;
     }
     currentLang = currentLang === 'de' ? 'en' : 'de';

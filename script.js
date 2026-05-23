@@ -597,7 +597,7 @@ function initDonateForm() {
 /* ── Hero progress bar ── */
 function initProgressBar() {
   const goal = 11000;
-  const raised = 10830;
+  const raised = 11000;
   const remaining = goal - raised;
   const pct = Math.round((raised / goal) * 100);
   const fmt = n => n.toLocaleString('de-DE');
